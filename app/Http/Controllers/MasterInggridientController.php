@@ -2,84 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use Gate;
+use Illuminate\Http\Response;
 use App\Models\MasterInggridient;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use App\Http\Livewire\Pages\Inggridient\Show;
+use App\Http\Livewire\Pages\Inggridient\Edit;
+use App\Http\Livewire\Pages\Inggridient\Index;
+use App\Http\Livewire\Pages\Inggridient\Create;
 
 class MasterInggridientController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        abort_if(Gate::denies('master_inggridients_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return App::call(Index::class);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        abort_if(Gate::denies('master_inggridients_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return App::call(Create::class);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function show(MasterInggridient $master_inggridient)
     {
-        //
+        abort_if(Gate::denies('master_inggridients_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return App::call(Show::class)->with(compact('master_inggridient'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\MasterInggridient  $masterInggridient
-     * @return \Illuminate\Http\Response
-     */
-    public function show(MasterInggridient $masterInggridient)
+    public function edit(MasterInggridient $master_inggridient)
     {
-        //
-    }
+        abort_if(Gate::denies('master_inggridients_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\MasterInggridient  $masterInggridient
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(MasterInggridient $masterInggridient)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\MasterInggridient  $masterInggridient
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, MasterInggridient $masterInggridient)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\MasterInggridient  $masterInggridient
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(MasterInggridient $masterInggridient)
-    {
-        //
+        return App::call(Edit::class)->with(compact('master_inggridient'));
     }
 }

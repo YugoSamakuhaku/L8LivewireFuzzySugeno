@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Gate;
 use App\Models\Supplier;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use App\Http\Livewire\Pages\Supplier\Show;

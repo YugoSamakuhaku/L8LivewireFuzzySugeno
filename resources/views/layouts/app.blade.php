@@ -16,11 +16,10 @@
     <!-- SweetAlert2 -->
     <script src="{{ asset('assets/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src=" {{ asset('assets/dist/js/demo.js') }}"></script>
+
+    @stack('scripts')
 
     @livewireScripts
-    @stack('scripts')
 
     <x-livewire-alert::scripts />
     <x-livewire-alert::flash />

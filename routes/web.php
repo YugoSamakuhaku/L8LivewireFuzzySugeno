@@ -8,6 +8,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\MasterProductController;
+use App\Http\Controllers\MasterInggridientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +45,14 @@ Route::group(['middleware' => 'auth'], function (): void {
     Route::get('/supplier/create', [SupplierController::class, 'create'])->name('supplier.create');
     Route::get('/supplier/edit/{supplier}', [SupplierController::class, 'edit'])->name('supplier.edit');
     Route::get('/supplier/show/{supplier}', [SupplierController::class, 'show'])->name('supplier.show');
+
+    Route::get('/master_inggridient', [MasterInggridientController::class, 'index'])->name('master_inggridient.index');
+    Route::get('/master_inggridient/create', [MasterInggridientController::class, 'create'])->name('master_inggridient.create');
+    Route::get('/master_inggridient/edit/{master_inggridient}', [MasterInggridientController::class, 'edit'])->name('master_inggridient.edit');
+    Route::get('/master_inggridient/show/{master_inggridient}', [MasterInggridientController::class, 'show'])->name('master_inggridient.show');
+
+    Route::get('/master_product', [MasterProductController::class, 'index'])->name('master_product.index');
+    Route::get('/master_product/create', [MasterProductController::class, 'create'])->name('master_product.create');
+    Route::get('/master_product/edit/{master_product}', [MasterProductController::class, 'edit'])->name('master_product.edit');
+    Route::get('/master_product/show/{master_product}', [MasterProductController::class, 'show'])->name('master_product.show');
 });

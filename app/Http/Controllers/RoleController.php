@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Gate;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\App;

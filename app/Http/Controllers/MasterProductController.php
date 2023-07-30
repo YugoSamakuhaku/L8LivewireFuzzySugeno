@@ -2,84 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use Gate;
+use Illuminate\Http\Response;
 use App\Models\MasterProduct;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use App\Http\Livewire\Pages\Product\Show;
+use App\Http\Livewire\Pages\Product\Edit;
+use App\Http\Livewire\Pages\Product\Index;
+use App\Http\Livewire\Pages\Product\Create;
 
 class MasterProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        abort_if(Gate::denies('master_products_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return App::call(Index::class);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        abort_if(Gate::denies('master_products_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return App::call(Create::class);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function show(MasterProduct $master_product)
     {
-        //
+        abort_if(Gate::denies('master_products_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return App::call(Show::class)->with(compact('master_product'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\MasterProduct  $masterProduct
-     * @return \Illuminate\Http\Response
-     */
-    public function show(MasterProduct $masterProduct)
+    public function edit(MasterProduct $master_product)
     {
-        //
-    }
+        abort_if(Gate::denies('master_products_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\MasterProduct  $masterProduct
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(MasterProduct $masterProduct)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\MasterProduct  $masterProduct
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, MasterProduct $masterProduct)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\MasterProduct  $masterProduct
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(MasterProduct $masterProduct)
-    {
-        //
+        return App::call(Edit::class)->with(compact('master_product'));
     }
 }

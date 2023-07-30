@@ -26,7 +26,7 @@
                     @endcan
                     @can('master_products_access')
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('master_product.index') }}" class="nav-link {{ request()->routeIs('master_product.*') ? 'active' : '' }}">
                                 <i class="nav-icon fab fa-product-hunt"></i>
                                 <p>
                                     Products
@@ -36,7 +36,7 @@
                     @endcan
                     @can('master_inggridients_access')
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('master_inggridient.index') }}" class="nav-link {{ request()->routeIs('master_inggridient.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-warehouse"></i>
                                 <p>
                                     Inggridients

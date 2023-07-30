@@ -6,10 +6,12 @@ use App\Models\User;
 use App\Models\Supplier;
 use App\Observers\RoleObserver;
 use App\Observers\UserObserver;
+use App\Models\MasterInggridient;
 use Spatie\Permission\Models\Role;
 use App\Observers\SupplierObserver;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
+use App\Observers\MasterInggridientObserver;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -36,5 +38,6 @@ class EventServiceProvider extends ServiceProvider
         User::observe(UserObserver::class);
         Supplier::observe(SupplierObserver::class);
         Role::observe(RoleObserver::class);
+        MasterInggridient::observe(MasterInggridientObserver::class);
     }
 }
