@@ -30,14 +30,17 @@ Route::group(['middleware' => 'auth'], function (): void {
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
     Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
     Route::get('/user/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
+    Route::get('/user/show/{user}', [UserController::class, 'show'])->name('user.show');
 
     Route::get('/role', [RoleController::class, 'index'])->name('role.index');
     Route::get('/role/create', [RoleController::class, 'create'])->name('role.create');
     Route::get('/role/edit/{role}', [RoleController::class, 'edit'])->name('role.edit');
+    Route::get('/role/show/{role}', [RoleController::class, 'show'])->name('role.show');
 
     Route::get('/permission', [PermissionController::class, 'index'])->name('permission.index');
 
     Route::get('/supplier', [SupplierController::class, 'index'])->name('supplier.index');
     Route::get('/supplier/create', [SupplierController::class, 'create'])->name('supplier.create');
     Route::get('/supplier/edit/{supplier}', [SupplierController::class, 'edit'])->name('supplier.edit');
+    Route::get('/supplier/show/{supplier}', [SupplierController::class, 'show'])->name('supplier.show');
 });

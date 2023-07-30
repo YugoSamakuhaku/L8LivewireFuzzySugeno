@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\DataTable;
 
+use Gate;
+use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
 use Spatie\Permission\Models\Role;
 use Illuminate\Database\Eloquent\Builder;
@@ -100,8 +102,7 @@ final class RoleTable extends PowerGridComponent
         return PowerGrid::eloquent()
             ->addColumn('id_format', fn (Role $model) => 'ROLE-' . '' . str_pad('' . $model->id, 3, '0', STR_PAD_LEFT))
             ->addColumn('name')
-            ->addColumn('created_at_formatted', fn (Role $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
-            ->addColumn('updated_at_formatted', fn (Role $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
+            ->addColumn('created_at_formatted', fn (Role $model) => Carbon::parse($model->created_at)->format('l d-F-Y'));
     }
 
     /*
@@ -151,6 +152,12 @@ final class RoleTable extends PowerGridComponent
     public function actions(): array
     {
         return [
+            Button::make('show', 'Show')
+            ->class('btn btn-sm btn-info fas fa-eye')
+            ->route('role.show', ['role' => 'id'])
+            ->can(auth()->User()->hasPermissionTo('roles_show'))
+            ->target('_self'),
+
             Button::make('edit', 'Edit')
                 ->class('btn btn-sm btn-warning fas fa-edit')
                 ->route('role.edit', ['role' => 'id'])

@@ -163,6 +163,12 @@ final class UserTable extends PowerGridComponent
     public function actions(): array
     {
         return [
+            Button::make('show', 'Show')
+                ->class('btn btn-sm btn-info fas fa-eye')
+                ->route('user.show', ['user' => 'id_user'])
+                ->can(auth()->User()->hasPermissionTo('users_show'))
+                ->target('_self'),
+                
             Button::make('edit', 'Edit')
                 ->class('btn btn-sm btn-warning fas fa-edit')
                 ->route('user.edit', ['user' => 'id_user'])

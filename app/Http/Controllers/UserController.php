@@ -32,7 +32,11 @@ class UserController extends Controller
     {
         abort_if(Gate::denies('users_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return App::call(Show::class)->with(compact('user'));
+        $user_with_roles = $user->with(['roles' => function ($query) {
+            $query->select('id', 'name');
+        }])->get();
+
+        return App::call(Show::class)->with(compact('user_with_roles'));
     }
 
     public function edit(User $user)

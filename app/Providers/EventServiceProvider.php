@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use App\Models\User;
 use App\Models\Supplier;
+use App\Observers\RoleObserver;
 use App\Observers\UserObserver;
+use Spatie\Permission\Models\Role;
 use App\Observers\SupplierObserver;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
@@ -33,5 +35,6 @@ class EventServiceProvider extends ServiceProvider
     {
         User::observe(UserObserver::class);
         Supplier::observe(SupplierObserver::class);
+        Role::observe(RoleObserver::class);
     }
 }

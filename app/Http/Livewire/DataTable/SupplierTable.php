@@ -173,6 +173,12 @@ final class SupplierTable extends PowerGridComponent
     public function actions(): array
     {
         return [
+            Button::make('show', 'Show')
+            ->class('btn btn-sm btn-info fas fa-eye')
+            ->route('supplier.show', ['supplier' => 'id_supplier'])
+            ->can(auth()->User()->hasPermissionTo('suppliers_show'))
+            ->target('_self'),
+
             Button::make('edit', 'Edit')
                 ->class('btn btn-sm btn-warning fas fa-edit')
                 ->route('supplier.edit', ['supplier' => 'id_supplier'])

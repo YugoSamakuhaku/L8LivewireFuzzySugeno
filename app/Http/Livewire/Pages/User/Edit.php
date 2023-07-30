@@ -39,6 +39,8 @@ class Edit extends Component
 
         $this->user->save();
         $this->user->roles()->sync($this->roles);
+
+        return redirect()->route('user.index');
     }
 
     protected function rules(): array
