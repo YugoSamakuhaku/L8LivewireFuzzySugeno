@@ -66,11 +66,18 @@ class Create extends Component
 
         $this->master_product->unit_product = $this->unit_product;
 
-        $master_product = $this->master_product->save();
-        
+        $this->master_product->save();
+
+        $sync_data = [];
+
         foreach ($this->productInggridient as $key => $value) {
-            $this->master_product->master_inggridients()->sync([$key, ['usage_amount' => $value['usage_amount']]]);
+            $sync_data[] = [
+                'id_inggridient' => $value['id_inggridient'],
+                'usage_amount' => $value['usage_amount'],
+            ];
         }
+
+        $this->master_product->master_inggridients()->sync($sync_data);
     }
 
     protected function rules(): array
