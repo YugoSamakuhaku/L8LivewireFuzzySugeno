@@ -228,7 +228,7 @@ final class RoleTable extends PowerGridComponent
 
         try {
             $role->delete();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->alert('error', 'Failed to Delete Data', [
                 'position' => 'top-end',
                 'timer' => 5000,

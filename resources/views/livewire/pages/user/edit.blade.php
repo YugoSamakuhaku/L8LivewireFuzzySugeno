@@ -52,6 +52,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                 <label for="roles">Roles</label>
                                     <div wire:ignore class="w-full">
                                         <div id="roles-btn-container" class="mb-3">
                                             <button type="button" class="btn btn-info btn-sm select-all-button">Select All</button>
@@ -65,7 +66,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-large btn-success submit">Save</button>
+                                    <button type="submit" class="btn btn-large btn-success submit">Update</button>
                                     <a href="{{ route('user.index') }}" class="btn btn-large btn-secondary">
                                         Cancel
                                     </a>

@@ -34,6 +34,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                <label for="permissions">Permission</label>
                                     <div wire:ignore class="w-full">
                                         <div id="permissions-btn-container" class="mb-3">
                                             <button type="button" class="btn btn-info btn-sm select-all-button">Select All</button>
@@ -47,7 +48,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-large btn-success submit">Save</button>
+                                    <button type="submit" class="btn btn-large btn-success submit">Update</button>
                                     <a href="{{ route('role.index') }}" class="btn btn-large btn-secondary">
                                         Cancel
                                     </a>

@@ -18,9 +18,12 @@
             <!-- Main content -->
             <section class="content">
                 <div class="card">
-                    <div class="card-header">
-                        <a href="{{ route('user.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Create New Data</a>
-                    </div>
+                    @can('users_create')
+                        <div class="card-header">
+                            <a href="{{ route('user.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Create New
+                                Data</a>
+                        </div>
+                    @endcan
                     <!-- ./card-header -->
                     <div class="card-body pt-4">
                         <livewire:data-table.user-table />

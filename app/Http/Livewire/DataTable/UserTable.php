@@ -239,7 +239,7 @@ final class UserTable extends PowerGridComponent
 
         try {
             $user->delete();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->alert('error', 'Failed to Delete Data', [
                 'position' => 'top-end',
                 'timer' => 5000,

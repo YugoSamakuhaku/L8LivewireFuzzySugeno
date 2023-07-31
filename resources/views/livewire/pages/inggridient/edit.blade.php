@@ -59,7 +59,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-large btn-success submit">Save</button>
+                                    <button type="submit" class="btn btn-large btn-success submit">Update</button>
                                     <a href="{{ route('master_inggridient.index') }}"
                                         class="btn btn-large btn-secondary">
                                         Cancel

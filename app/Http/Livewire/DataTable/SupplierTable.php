@@ -248,7 +248,7 @@ final class SupplierTable extends PowerGridComponent
 
         try {
             $supplier->delete();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->alert('error', 'Failed to Delete Data', [
                 'position' => 'top-end',
                 'timer' => 5000,

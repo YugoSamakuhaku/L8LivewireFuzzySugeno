@@ -24,7 +24,7 @@ class MasterProduct extends Model
 
     public function master_inggridients()
     {
-        return $this->belongsToMany(MasterInggridient::class, 'product_inggridients', 'id_product', 'id_inggridient');
+        return $this->belongsToMany(MasterInggridient::class, 'product_inggridients', 'id_product', 'id_inggridient')->withPivot('usage_amount');
     }
 
     public function request_sales()

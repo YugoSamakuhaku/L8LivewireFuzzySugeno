@@ -5,21 +5,21 @@ namespace App\Http\Livewire\DataTable;
 use Gate;
 use Illuminate\Support\Str;
 use Illuminate\Http\Response;
+use App\Models\MasterProduct;
 use Illuminate\Support\Carbon;
-use App\Models\MasterInggridient;
 use Illuminate\Database\Eloquent\Builder;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
 
-final class MasterInggridientTable extends PowerGridComponent
+final class ProductTable extends PowerGridComponent
 {
     use ActionButton;
     use LivewireAlert;
 
-    public string $primaryKey = 'id_inggridient';
-    public string $sortField = 'id_inggridient';
+    public string $primaryKey = 'id_product';
+    public string $sortField = 'id_product';
 
     protected function getListeners(): array
     {
@@ -65,11 +65,11 @@ final class MasterInggridientTable extends PowerGridComponent
     /**
      * PowerGrid datasource.
      *
-     * @return Builder<\App\Models\MasterInggridient>
+     * @return Builder<\App\Models\MasterProduct>
      */
     public function datasource(): Builder
     {
-        return MasterInggridient::query();
+        return MasterProduct::query();
     }
 
     /*
@@ -104,20 +104,17 @@ final class MasterInggridientTable extends PowerGridComponent
     public function addColumns(): PowerGridEloquent
     {
         return PowerGrid::eloquent()
-            ->addColumn('id_inggridient_format', fn (MasterInggridient $model) => 'B-' . '' . str_pad('' . $model->id_inggridient, 5, '0', STR_PAD_LEFT))
-            ->addColumn('name_inggridient')
+            ->addColumn('id_product_format', fn (MasterProduct $model) => 'P-' . '' . str_pad('' . $model->id_product, 5, '0', STR_PAD_LEFT))
+            ->addColumn('name_product')
 
             /** Example of custom column using a closure **/
-            ->addColumn('name_inggridient_lower', function (MasterInggridient $model) {
-                return strtolower(e($model->name_inggridient));
+            ->addColumn('name_product_lower', function (MasterProduct $model) {
+                return strtolower(e($model->name_product));
             })
 
-            ->addColumn('qty_inggridient')
-            ->addColumn('unit_inggridient')
-            ->addColumn('price_inggridient')
-            ->addColumn('duration_expired')
-            ->addColumn('time_expired')
-            ->addColumn('updated_at_formatted', fn (MasterInggridient $model) => Carbon::parse($model->updated_at)->format('d F Y H:i'));
+            ->addColumn('unit_product')
+            ->addColumn('price_product')
+            ->addColumn('updated_at_formatted', fn (MasterProduct $model) => Carbon::parse($model->updated_at)->format('d F Y H:i'));
     }
 
     /*
@@ -137,19 +134,17 @@ final class MasterInggridientTable extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('ID INGGRIDIENT', 'id_inggridient_format'),
+            Column::make('ID PRODUCT', 'id_product_format'),
 
-            Column::make('NAME INGGRIDIENT', 'name_inggridient')
+            Column::make('NAME PRODUCT', 'name_product')
                 ->sortable()
                 ->searchable(),
 
-            Column::make('UNIT INGGRIDIENT', 'unit_inggridient')
+            Column::make('UNIT PRODUCT', 'unit_product')
                 ->sortable()
                 ->searchable(),
 
-            Column::make('PRICE INGGRIDIENT', 'price_inggridient')
-                ->searchable()
-                ->sortable(),
+            Column::make('PRICE PRODUCT', 'price_product'),
 
             Column::make('UPDATED AT', 'updated_at_formatted', 'updated_at')
                 ->searchable()
@@ -167,7 +162,7 @@ final class MasterInggridientTable extends PowerGridComponent
     */
 
     /**
-     * PowerGrid MasterInggridient Action Buttons.
+     * PowerGrid MasterProduct Action Buttons.
      *
      * @return array<int, Button>
      */
@@ -175,23 +170,23 @@ final class MasterInggridientTable extends PowerGridComponent
     public function actions(): array
     {
         return [
-            // Button::make('show', 'Show')
-            //     ->class('btn btn-sm btn-info fas fa-eye')
-            //     ->route('master_inggridient.show', ['master_inggridient' => 'id_inggridient'])
-            //     ->can(auth()->User()->hasPermissionTo('master_inggridients_show'))
-            //     ->target('_self'),
+            Button::make('show', 'Show')
+                ->class('btn btn-sm btn-info fas fa-eye')
+                ->route('master_product.show', ['master_product' => 'id_product'])
+                ->can(auth()->User()->hasPermissionTo('master_products_show'))
+                ->target('_self'),
 
             Button::make('edit', 'Edit')
                 ->class('btn btn-sm btn-warning fas fa-edit')
-                ->route('master_inggridient.edit', ['master_inggridient' => 'id_inggridient'])
-                ->can(auth()->User()->hasPermissionTo('master_inggridients_edit'))
+                ->route('master_product.edit', ['master_product' => 'id_product'])
+                ->can(auth()->User()->hasPermissionTo('master_products_edit'))
                 ->target('_self'),
 
             Button::add('destroy')
                 ->caption('Delete')
                 ->class('btn btn-sm btn-danger fas fa-trash-alt')
-                ->emit('delete-data', ['master_inggridient' => 'id_inggridient'])
-                ->can(auth()->User()->hasPermissionTo('master_inggridients_delete'))
+                ->emit('delete-data', ['master_product' => 'id_product'])
+                ->can(auth()->User()->hasPermissionTo('master_products_delete'))
         ];
     }
 
@@ -204,7 +199,7 @@ final class MasterInggridientTable extends PowerGridComponent
     */
 
     /**
-     * PowerGrid MasterInggridient Action Rules.
+     * PowerGrid MasterProduct Action Rules.
      *
      * @return array<int, RuleActions>
      */
@@ -216,19 +211,19 @@ final class MasterInggridientTable extends PowerGridComponent
 
            //Hide button edit for ID 1
             Rule::button('edit')
-                ->when(fn($master-inggridient) => $master-inggridient->id === 1)
+                ->when(fn($master-product) => $master-product->id === 1)
                 ->hide(),
         ];
     }
     */
 
-    public function deleteData(MasterInggridient $master_inggridient): void
+    public function deleteData(MasterProduct $master_product): void
     {
-        abort_if(Gate::denies('master_inggridients_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('master_products_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $this->confirm('Delete Data!!', [
             'inputAttributes' => [
-                'value' => $master_inggridient
+                'value' => $master_product
             ],
             'position' => 'center',
             'timer' => '',
@@ -237,7 +232,7 @@ final class MasterInggridientTable extends PowerGridComponent
             'onConfirmed' => 'confirmed-alert',
             'showCancelButton' => true,
             'onDismissed' => '',
-            'text' => 'Are you sure you want to delete data ' . 'B-' . '' . str_pad('' . $master_inggridient->id_inggridient, 5, '0', STR_PAD_LEFT) . ' ?',
+            'text' => 'Are you sure you want to delete data ' . 'P-' . '' . str_pad('' . $master_product->id_product, 5, '0', STR_PAD_LEFT) . ' ?',
             'cancelButtonText' => 'Cancel',
             'confirmButtonText' => 'Yes',
         ]);
@@ -245,11 +240,11 @@ final class MasterInggridientTable extends PowerGridComponent
 
     public function confirmed($response): void
     {
-        $id = $response['data']['inputAttributes']['value']['id_inggridient'];
-        $master_inggridient = MasterInggridient::find($id);
+        $id = $response['data']['inputAttributes']['value']['id_product'];
+        $master_product = MasterProduct::find($id);
 
         try {
-            $master_inggridient->delete();
+            $master_product->delete();
         } catch (\Exception $e) {
             $this->alert('error', 'Failed to Delete Data', [
                 'position' => 'top-end',

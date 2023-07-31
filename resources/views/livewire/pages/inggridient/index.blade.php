@@ -18,12 +18,15 @@
             <!-- Main content -->
             <section class="content">
                 <div class="card">
-                    <div class="card-header">
-                        <a href="{{ route('master_inggridient.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Create New Data</a>
-                    </div>
+                    @can('master_inggridients_create')
+                        <div class="card-header">
+                            <a href="{{ route('master_inggridient.create') }}" class="btn btn-primary"><i
+                                    class="fas fa-plus"></i> Create New Data</a>
+                        </div>
+                    @endcan
                     <!-- ./card-header -->
                     <div class="card-body pt-4">
-                        <livewire:data-table.master-inggridient-table/>
+                        <livewire:data-table.master-inggridient-table />
                     </div>
                     <!-- /.card-body -->
                 </div>
