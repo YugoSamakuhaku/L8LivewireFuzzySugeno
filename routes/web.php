@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\MasterProductController;
 use App\Http\Controllers\MasterInggridientController;
+use App\Http\Controllers\PurchaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,4 +56,8 @@ Route::group(['middleware' => 'auth'], function (): void {
     Route::get('/master_product/create', [MasterProductController::class, 'create'])->name('master_product.create');
     Route::get('/master_product/edit/{master_product}', [MasterProductController::class, 'edit'])->name('master_product.edit');
     Route::get('/master_product/show/{master_product}', [MasterProductController::class, 'show'])->name('master_product.show');
+
+    Route::get('/purchase', [PurchaseController::class, 'index'])->name('purchase.index');
+    Route::get('/purchase/create', [PurchaseController::class, 'create'])->name('purchase.create');
+    Route::get('/purchase/show/{purchase}', [PurchaseController::class, 'show'])->name('purchase.show');
 });

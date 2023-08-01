@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use DateTimeInterface;
+use App\Models\Purchase;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
@@ -62,5 +63,10 @@ class User extends Authenticatable
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
+    }
+
+    public function Purchases()
+    {
+        return $this->hasMany(Purchase::class, 'id_user', 'id_user');
     }
 }

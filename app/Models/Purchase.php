@@ -26,11 +26,12 @@ class Purchase extends Model
 
     public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_user', 'id_user');
     }
+
     public function suppliers()
     {
-        return $this->belongsTo(Supplier::class);
+        return $this->belongsTo(Supplier::class, 'id_supplier', 'id_supplier');
     }
 
     public function master_inggridients()

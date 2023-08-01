@@ -59,7 +59,7 @@
                     @endcan
                     @can('purchases_access')
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('purchase.index') }}" class="nav-link {{ request()->routeIs('purchase.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-truck-loading"></i>
                                 <p>
                                     Purchases
