@@ -2,84 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use Gate;
 use App\Models\RequestSale;
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\App;
+use App\Http\Livewire\Pages\Sale\Show;
+use App\Http\Livewire\Pages\Sale\Index;
+use App\Http\Livewire\Pages\Sale\Create;
 
 class RequestSaleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        abort_if(Gate::denies('request_sales_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return App::call(Index::class);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        abort_if(Gate::denies('request_sales_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return App::call(Create::class);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function show(RequestSale $request_sale)
     {
-        //
-    }
+        abort_if(Gate::denies('request_sales_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\RequestSale  $requestSale
-     * @return \Illuminate\Http\Response
-     */
-    public function show(RequestSale $requestSale)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\RequestSale  $requestSale
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(RequestSale $requestSale)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\RequestSale  $requestSale
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, RequestSale $requestSale)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\RequestSale  $requestSale
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(RequestSale $requestSale)
-    {
-        //
+        return App::call(Show::class)->with(compact('request_sale'));
     }
 }

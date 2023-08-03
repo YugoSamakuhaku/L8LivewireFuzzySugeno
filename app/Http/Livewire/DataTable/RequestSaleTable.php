@@ -2,10 +2,7 @@
 
 namespace App\Http\Livewire\DataTable;
 
-use Gate;
-use App\Models\Purchase;
-use Illuminate\Support\Str;
-use Illuminate\Http\Response;
+use App\Models\RequestSale;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -13,13 +10,13 @@ use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
 
-final class PurchaseTable extends PowerGridComponent
+final class RequestSaleTable extends PowerGridComponent
 {
     use ActionButton;
     use LivewireAlert;
 
-    public string $primaryKey = 'id_purchase';
-    public string $sortField = 'id_purchase';
+    public string $primaryKey = 'id_sale';
+    public string $sortField = 'id_sale';
 
     /*
     |--------------------------------------------------------------------------
@@ -52,13 +49,13 @@ final class PurchaseTable extends PowerGridComponent
     */
 
     /**
-     * PowerGrid datasource.
-     *
-     * @return Builder<\App\Models\Purchase>
-     */
+    * PowerGrid datasource.
+    *
+    * @return Builder<\App\Models\RequestSale>
+    */
     public function datasource(): Builder
     {
-        return Purchase::with(['suppliers:id_supplier,name_supplier', 'users:id_user,fullname', 'master_inggridients']);
+        return RequestSale::query();
     }
 
     /*
@@ -93,19 +90,12 @@ final class PurchaseTable extends PowerGridComponent
     public function addColumns(): PowerGridEloquent
     {
         return PowerGrid::eloquent()
-            ->addColumn('id_purchase_format', fn (Purchase $model) => 'PU-' . '' . str_pad('' . $model->id_purchase, 5, '0', STR_PAD_LEFT))
-            ->addColumn('name_supplier', function (Purchase $model) {
-                return $model->suppliers->name_supplier;
-            })
-            ->addColumn('name_user', function (Purchase $model) {
-                return $model->users->fullname;
-            })
-            ->addColumn('total_price_inggridient', function (Purchase $model) {
-                return $model->master_inggridients->sum('pivot.total_price_inggridient');
-            })
-            ->addColumn('date_purchase_formatted', fn (Purchase $model) => Carbon::parse($model->date_purchase)->format('l, d F Y'))
-            ->addColumn('created_at_formatted', fn (Purchase $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
-            ->addColumn('updated_at_formatted', fn (Purchase $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
+            ->addColumn('id_sale')
+            ->addColumn('id_user')
+            ->addColumn('qty_sale')
+            ->addColumn('date_sale_formatted', fn (RequestSale $model) => Carbon::parse($model->date_sale)->format('d/m/Y'))
+            ->addColumn('created_at_formatted', fn (RequestSale $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
+            ->addColumn('updated_at_formatted', fn (RequestSale $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
     }
 
     /*
@@ -117,7 +107,7 @@ final class PurchaseTable extends PowerGridComponent
     |
     */
 
-    /**
+     /**
      * PowerGrid Columns.
      *
      * @return array<int, Column>
@@ -125,24 +115,32 @@ final class PurchaseTable extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('ID PURCHASE', 'id_purchase_format'),
+            Column::make('ID SALE', 'id_sale')
+                ->makeInputRange(),
 
-            Column::make('NAME SUPPLIER', 'name_supplier')
-                ->searchable()
-                ->sortable(),
+            Column::make('ID USER', 'id_user')
+                ->makeInputRange(),
 
-            Column::make('NAME USER', 'name_user')
-                ->searchable()
-                ->sortable(),
+            Column::make('QTY SALE', 'qty_sale')
+                ->makeInputRange(),
 
-            Column::make('TOTAL PRICE PURCHASE', 'total_price_inggridient')
+            Column::make('DATE SALE', 'date_sale_formatted', 'date_sale')
                 ->searchable()
-                ->sortable(),
-            
-                Column::make('DATE PURCHASE', 'date_purchase_formatted')
+                ->sortable()
+                ->makeInputDatePicker(),
+
+            Column::make('CREATED AT', 'created_at_formatted', 'created_at')
                 ->searchable()
-                ->sortable(),
-        ];
+                ->sortable()
+                ->makeInputDatePicker(),
+
+            Column::make('UPDATED AT', 'updated_at_formatted', 'updated_at')
+                ->searchable()
+                ->sortable()
+                ->makeInputDatePicker(),
+
+        ]
+;
     }
 
     /*
@@ -153,22 +151,27 @@ final class PurchaseTable extends PowerGridComponent
     |
     */
 
-    /**
-     * PowerGrid Purchase Action Buttons.
+     /**
+     * PowerGrid RequestSale Action Buttons.
      *
      * @return array<int, Button>
      */
 
+    /*
     public function actions(): array
     {
-        return [
-            Button::make('show', 'Show')
-                ->class('btn btn-sm btn-info fas fa-eye')
-                ->route('purchase.show', ['purchase' => 'id_purchase'])
-                ->can(auth()->User()->hasPermissionTo('purchases_show'))
-                ->target('_self'),
+       return [
+           Button::make('edit', 'Edit')
+               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+               ->route('request-sale.edit', ['request-sale' => 'id']),
+
+           Button::make('destroy', 'Delete')
+               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
+               ->route('request-sale.destroy', ['request-sale' => 'id'])
+               ->method('delete')
         ];
     }
+    */
 
     /*
     |--------------------------------------------------------------------------
@@ -178,8 +181,8 @@ final class PurchaseTable extends PowerGridComponent
     |
     */
 
-    /**
-     * PowerGrid Purchase Action Rules.
+     /**
+     * PowerGrid RequestSale Action Rules.
      *
      * @return array<int, RuleActions>
      */
@@ -191,7 +194,7 @@ final class PurchaseTable extends PowerGridComponent
 
            //Hide button edit for ID 1
             Rule::button('edit')
-                ->when(fn($purchase) => $purchase->id === 1)
+                ->when(fn($request-sale) => $request-sale->id === 1)
                 ->hide(),
         ];
     }

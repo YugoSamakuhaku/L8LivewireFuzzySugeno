@@ -69,7 +69,7 @@
                     @endcan
                     @can('request_sales_access')
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('sale.index') }}" class="nav-link {{ request()->routeIs('sale.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-shopping-basket"></i>
                                 <p>
                                     Sales

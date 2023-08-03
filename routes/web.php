@@ -11,6 +11,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\MasterProductController;
 use App\Http\Controllers\MasterInggridientController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\RequestSaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,4 +61,8 @@ Route::group(['middleware' => 'auth'], function (): void {
     Route::get('/purchase', [PurchaseController::class, 'index'])->name('purchase.index');
     Route::get('/purchase/create', [PurchaseController::class, 'create'])->name('purchase.create');
     Route::get('/purchase/show/{purchase}', [PurchaseController::class, 'show'])->name('purchase.show');
+    
+    Route::get('/sale', [RequestSaleController::class, 'index'])->name('sale.index');
+    Route::get('/sale/create', [RequestSaleController::class, 'create'])->name('sale.create');
+    Route::get('/sale/show/{sale}', [RequestSaleController::class, 'show'])->name('sale.show');
 });

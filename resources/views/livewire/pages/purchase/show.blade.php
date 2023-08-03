@@ -34,11 +34,11 @@
                             <tbody>
                                 <tr>
                                     <td style="width: 170px"><strong>NAME SUPPLIER</strong></td>
-                                    <td>{{ $this->purchase->id_supplier }}</td>
+                                    <td>{{ $this->purchase->suppliers->name_supplier }}</td>
                                 </tr>
                                 <tr>
                                     <td style="width: 170px"><strong>NAME USER</strong></td>
-                                    <td>{{ $this->purchase->id_user }}</td>
+                                    <td>{{ $this->purchase->users->fullname }}</td>
                                 </tr>
                             </tbody>
                         </table>
