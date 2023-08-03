@@ -148,10 +148,6 @@ final class SupplierTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
-            Column::make('DESCRIPTION SUPPLIER', 'description_supplier_format')
-                ->sortable()
-                ->searchable(),
-
 
         ];
     }

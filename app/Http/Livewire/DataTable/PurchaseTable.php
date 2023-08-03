@@ -58,7 +58,7 @@ final class PurchaseTable extends PowerGridComponent
      */
     public function datasource(): Builder
     {
-        return Purchase::with(['suppliers:id_supplier,name_supplier', 'users:id_user,fullname']);
+        return Purchase::with(['suppliers:id_supplier,name_supplier', 'users:id_user,fullname', 'master_inggridients']);
     }
 
     /*
@@ -100,6 +100,9 @@ final class PurchaseTable extends PowerGridComponent
             ->addColumn('name_user', function (Purchase $model) {
                 return $model->users->fullname;
             })
+            ->addColumn('total_price_inggridient', function (Purchase $model) {
+                return $model->master_inggridients->sum('pivot.total_price_inggridient');
+            })
             ->addColumn('date_purchase_formatted', fn (Purchase $model) => Carbon::parse($model->date_purchase)->format('l, d F Y'))
             ->addColumn('created_at_formatted', fn (Purchase $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
             ->addColumn('updated_at_formatted', fn (Purchase $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
@@ -132,7 +135,7 @@ final class PurchaseTable extends PowerGridComponent
                 ->searchable()
                 ->sortable(),
 
-            Column::make('DATE PURCHASE', 'date_purchase_formatted', 'date_purchase')
+            Column::make('DATE PURCHASE', 'total_price_inggridient')
                 ->searchable()
                 ->sortable(),
         ];

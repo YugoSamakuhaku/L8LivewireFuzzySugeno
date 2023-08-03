@@ -36,6 +36,6 @@ class Purchase extends Model
 
     public function master_inggridients()
     {
-        return $this->belongsToMany(MasterInggridient::class, 'detail_purchases', 'id_purchase', 'id_inggridient');
+        return $this->belongsToMany(MasterInggridient::class, 'detail_purchases', 'id_purchase', 'id_inggridient')->withPivot('date_expired', 'qty', 'total_price_inggridient');
     }
 }

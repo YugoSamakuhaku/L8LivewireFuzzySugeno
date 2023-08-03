@@ -114,7 +114,7 @@ final class ProductTable extends PowerGridComponent
 
             ->addColumn('unit_product')
             ->addColumn('price_product')
-            ->addColumn('updated_at_formatted', fn (MasterProduct $model) => Carbon::parse($model->updated_at)->format('d F Y H:i'));
+            ->addColumn('updated_at_formatted', fn (MasterProduct $model) => Carbon::parse($model->updated_at)->format('l, d F Y'));
     }
 
     /*

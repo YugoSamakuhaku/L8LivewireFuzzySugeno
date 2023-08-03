@@ -27,10 +27,10 @@ class PurchaseController extends Controller
         return App::call(Create::class);
     }
 
-    public function show(Role $role)
+    public function show(Purchase $purchase)
     {
         abort_if(Gate::denies('purchases_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return App::call(Show::class)->with(compact('role'));
+        return App::call(Show::class)->with(compact('purchase'));
     }
 }
