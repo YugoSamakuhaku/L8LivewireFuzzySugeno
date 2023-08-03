@@ -1,4 +1,4 @@
- @section('title', 'Dashboard')
+@section('title', 'Dashboard')
 
  <div>
      <div>

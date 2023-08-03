@@ -123,7 +123,7 @@
                                             <td>{{ $value['name_inggridient'] }}</td>
                                             <td>{{ $value['usage_amount'] }} {{ $value['unit_inggridient'] }}</td>
                                             <td>
-                                                <a wire:click="delete_inggridient({{$value['id_inggridient'] }})" class="btn btn-sm btn-danger fas fa-trash-alt">
+                                                <a wire:click="delete_inggridient({{ $value['id_inggridient'] }})" class="btn btn-sm btn-danger fas fa-trash-alt">
                                                   Delete
                                                 </a>
                                             </td>

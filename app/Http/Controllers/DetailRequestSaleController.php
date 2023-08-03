@@ -30,7 +30,6 @@ class DetailRequestSaleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +40,6 @@ class DetailRequestSaleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\DetailRequestSale  $detailRequestSale
      * @return \Illuminate\Http\Response
      */
     public function show(DetailRequestSale $detailRequestSale)
@@ -52,7 +50,6 @@ class DetailRequestSaleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\DetailRequestSale  $detailRequestSale
      * @return \Illuminate\Http\Response
      */
     public function edit(DetailRequestSale $detailRequestSale)
@@ -63,8 +60,6 @@ class DetailRequestSaleController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\DetailRequestSale  $detailRequestSale
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, DetailRequestSale $detailRequestSale)
@@ -75,7 +70,6 @@ class DetailRequestSaleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\DetailRequestSale  $detailRequestSale
      * @return \Illuminate\Http\Response
      */
     public function destroy(DetailRequestSale $detailRequestSale)

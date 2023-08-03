@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateDetailPurchasesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('detail_purchases', function (Blueprint $table) {
@@ -26,11 +21,6 @@ class CreateDetailPurchasesTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('detail_purchases');

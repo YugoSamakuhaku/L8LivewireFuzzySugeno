@@ -2,11 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\Purchase;
-use App\Models\MasterProduct;
-use App\Models\InggridientHistory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class MasterInggridient extends Model
 {

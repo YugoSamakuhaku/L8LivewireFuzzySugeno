@@ -2,25 +2,20 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use DateTimeInterface;
-use App\Models\Purchase;
-use Laravel\Sanctum\HasApiTokens;
-use Spatie\Permission\Models\Role;
-use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use HasFactory, HasRoles;
 
+    public $timestamps = true;
+
     protected $table = 'users';
     protected $primaryKey = 'id_user';
-
-    public $timestamps = true;
 
     /**
      * The attributes that are mass assignable.
@@ -60,13 +55,13 @@ class User extends Authenticatable
         }
     }
 
-    protected function serializeDate(DateTimeInterface $date)
-    {
-        return $date->format('Y-m-d H:i:s');
-    }
-
     public function Purchases()
     {
         return $this->hasMany(Purchase::class, 'id_user', 'id_user');
+    }
+
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
     }
 }

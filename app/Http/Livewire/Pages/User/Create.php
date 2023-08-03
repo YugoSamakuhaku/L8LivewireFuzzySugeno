@@ -3,9 +3,9 @@
 namespace App\Http\Livewire\Pages\User;
 
 use App\Models\User;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Spatie\Permission\Models\Role;
-use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Create extends Component
 {
@@ -29,11 +29,6 @@ class Create extends Component
         return view('livewire.pages.user.create')->extends('layouts.app')->section('wrapper');
     }
 
-    protected function initListsForFields(): void
-    {
-        $this->listsForFields['roles'] = Role::pluck('name', 'id');
-    }
-
     public function submit(): void
     {
         $this->validate();
@@ -42,6 +37,11 @@ class Create extends Component
 
         $this->user->save();
         $this->user->roles()->sync($this->roles);
+    }
+
+    protected function initListsForFields(): void
+    {
+        $this->listsForFields['roles'] = Role::pluck('name', 'id');
     }
 
     protected function rules(): array

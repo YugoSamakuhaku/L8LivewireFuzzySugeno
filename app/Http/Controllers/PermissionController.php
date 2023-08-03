@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Gate;
+use App\Http\Livewire\Pages\Permission\Index;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
-use App\Http\Livewire\Pages\Permission\Index;
+use Illuminate\Support\Facades\Gate;
 
 class PermissionController extends Controller
 {

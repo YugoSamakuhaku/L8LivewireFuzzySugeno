@@ -2,16 +2,21 @@
 
 namespace App\Http\Livewire\DataTable;
 
-use Gate;
 use App\Models\Purchase;
-use Illuminate\Support\Str;
-use Illuminate\Http\Response;
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use PowerComponents\LivewirePowerGrid\Button;
+use PowerComponents\LivewirePowerGrid\Column;
+use PowerComponents\LivewirePowerGrid\Exportable;
+use PowerComponents\LivewirePowerGrid\Footer;
+use PowerComponents\LivewirePowerGrid\Header;
+use PowerComponents\LivewirePowerGrid\PowerGrid;
+use PowerComponents\LivewirePowerGrid\PowerGridComponent;
+use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
-use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
-use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
+use PowerComponents\LivewirePowerGridRules\Rule;
+use PowerComponents\LivewirePowerGridRules\RuleActions;
 
 final class PurchaseTable extends PowerGridComponent
 {
@@ -138,8 +143,8 @@ final class PurchaseTable extends PowerGridComponent
             Column::make('TOTAL PRICE PURCHASE', 'total_price_inggridient')
                 ->searchable()
                 ->sortable(),
-            
-                Column::make('DATE PURCHASE', 'date_purchase_formatted', 'date_purchase')
+
+            Column::make('DATE PURCHASE', 'date_purchase_formatted', 'date_purchase')
                 ->searchable()
                 ->sortable()
                 ->makeInputDatePicker(),
@@ -159,7 +164,6 @@ final class PurchaseTable extends PowerGridComponent
      *
      * @return array<int, Button>
      */
-
     public function actions(): array
     {
         return [

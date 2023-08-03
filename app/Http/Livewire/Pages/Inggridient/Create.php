@@ -39,7 +39,7 @@ class Create extends Component
             'master_inggridient.price_inggridient' => [
                 'required',
                 'numeric',
-            ]
+            ],
         ];
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Pages\Role;
 
-use Livewire\Component;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Component;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class Edit extends Component
 {
@@ -22,15 +22,10 @@ class Edit extends Component
         $this->permissions = $this->role->permissions()->pluck('id')->toArray();
         $this->initListsForFields();
     }
-    
+
     public function render()
     {
         return view('livewire.pages.role.edit')->extends('layouts.app')->section('wrapper');
-    }
-
-    protected function initListsForFields(): void
-    {
-        $this->listsForFields['permissions'] = Permission::pluck('name', 'id');
     }
 
     public function submit()
@@ -41,6 +36,11 @@ class Edit extends Component
         $this->role->syncPermissions($this->permissions);
 
         return redirect()->route('role.index');
+    }
+
+    protected function initListsForFields(): void
+    {
+        $this->listsForFields['permissions'] = Permission::pluck('name', 'id');
     }
 
     protected function rules(): array

@@ -22,7 +22,7 @@ class RoleSeeder extends Seeder
             ],
             [
                 'name' => 'Employee',
-            ]
+            ],
         ];
 
         foreach ($role as $value) {

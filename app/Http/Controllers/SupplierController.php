@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Gate;
+use App\Http\Livewire\Pages\Supplier\Create;
+use App\Http\Livewire\Pages\Supplier\Edit;
+use App\Http\Livewire\Pages\Supplier\Index;
+use App\Http\Livewire\Pages\Supplier\Show;
 use App\Models\Supplier;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
-use App\Http\Livewire\Pages\Supplier\Show;
-use App\Http\Livewire\Pages\Supplier\Edit;
-use App\Http\Livewire\Pages\Supplier\Index;
-use App\Http\Livewire\Pages\Supplier\Create;
+use Illuminate\Support\Facades\Gate;
 
 class SupplierController extends Controller
 {
-
     public function index()
     {
         abort_if(Gate::denies('suppliers_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');

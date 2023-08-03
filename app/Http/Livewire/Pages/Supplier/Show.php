@@ -2,16 +2,16 @@
 
 namespace App\Http\Livewire\Pages\Supplier;
 
-use Livewire\Component;
 use App\Models\Supplier;
+use Livewire\Component;
 
 class Show extends Component
 {
     public Supplier $supplier;
-    
+
     public function mount(Supplier $supplier): void
     {
-        $this->supplier  = $supplier;
+        $this->supplier = $supplier;
     }
 
     public function render()

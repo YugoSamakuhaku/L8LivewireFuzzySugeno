@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use App\Http\Livewire\Pages\Dashboard\Index;
+use Illuminate\Support\Facades\App;
 
 class DashboardController extends Controller
 {

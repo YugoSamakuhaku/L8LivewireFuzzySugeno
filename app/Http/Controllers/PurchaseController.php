@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Gate;
+use App\Http\Livewire\Pages\Purchase\Create;
+use App\Http\Livewire\Pages\Purchase\Index;
+use App\Http\Livewire\Pages\Purchase\Show;
 use App\Models\Purchase;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
-use App\Http\Livewire\Pages\Purchase\Show;
-use App\Http\Livewire\Pages\Purchase\Index;
-use App\Http\Livewire\Pages\Purchase\Create;
-
+use Illuminate\Support\Facades\Gate;
 
 class PurchaseController extends Controller
 {

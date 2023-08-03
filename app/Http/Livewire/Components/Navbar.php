@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Components;
 
-use Livewire\Component;
 use App\Traits\LogoutTrait;
+use Livewire\Component;
 
 class Navbar extends Component
 {

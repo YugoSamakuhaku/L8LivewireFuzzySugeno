@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Carbon\Carbon;
 use App\Models\Purchase;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class PurchaseSeeder extends Seeder
@@ -17,77 +17,77 @@ class PurchaseSeeder extends Seeder
     {
         $purchases = [
             [
-                "id_user" => 1,
-                "id_supplier" => 4,
-                "qty_purchase_inggridients" => 3,
-                "date_purchase" => Carbon::create("2021", "07", "30")
+                'id_user' => 1,
+                'id_supplier' => 4,
+                'qty_purchase_inggridients' => 3,
+                'date_purchase' => Carbon::create('2021', '07', '30'),
             ],
             [
-                "id_user" => 1,
-                "id_supplier" => 1,
-                "qty_purchase_inggridients" => 3,
-                "date_purchase" => Carbon::create("2021", "08", "31")
+                'id_user' => 1,
+                'id_supplier' => 1,
+                'qty_purchase_inggridients' => 3,
+                'date_purchase' => Carbon::create('2021', '08', '31'),
             ],
             [
-                "id_user" => 1,
-                "id_supplier" => 3,
-                "qty_purchase_inggridients" => 3,
-                "date_purchase" => Carbon::create("2021", "09", "30")
+                'id_user' => 1,
+                'id_supplier' => 3,
+                'qty_purchase_inggridients' => 3,
+                'date_purchase' => Carbon::create('2021', '09', '30'),
             ],
             [
-                "id_user" => 1,
-                "id_supplier" => 6,
-                "qty_purchase_inggridients" => 3,
-                "date_purchase" => Carbon::create("2021", "10", "30")
+                'id_user' => 1,
+                'id_supplier' => 6,
+                'qty_purchase_inggridients' => 3,
+                'date_purchase' => Carbon::create('2021', '10', '30'),
             ],
             [
-                "id_user" => 1,
-                "id_supplier" => 2,
-                "qty_purchase_inggridients" => 3,
-                "date_purchase" => Carbon::create("2021", "11", "30")
+                'id_user' => 1,
+                'id_supplier' => 2,
+                'qty_purchase_inggridients' => 3,
+                'date_purchase' => Carbon::create('2021', '11', '30'),
             ],
             [
-                "id_user" => 1,
-                "id_supplier" => 1,
-                "qty_purchase_inggridients" => 3,
-                "date_purchase" => Carbon::create("2021", "12", "31")
+                'id_user' => 1,
+                'id_supplier' => 1,
+                'qty_purchase_inggridients' => 3,
+                'date_purchase' => Carbon::create('2021', '12', '31'),
             ],
             [
-                "id_user" => 1,
-                "id_supplier" => 2,
-                "qty_purchase_inggridients" => 3,
-                "date_purchase" => Carbon::create("2022", "01", "30")
+                'id_user' => 1,
+                'id_supplier' => 2,
+                'qty_purchase_inggridients' => 3,
+                'date_purchase' => Carbon::create('2022', '01', '30'),
             ],
             [
-                "id_user" => 1,
-                "id_supplier" => 3,
-                "qty_purchase_inggridients" => 3,
-                "date_purchase" => Carbon::create("2022", "02", "28")
+                'id_user' => 1,
+                'id_supplier' => 3,
+                'qty_purchase_inggridients' => 3,
+                'date_purchase' => Carbon::create('2022', '02', '28'),
             ],
             [
-                "id_user" => 1,
-                "id_supplier" => 9,
-                "qty_purchase_inggridients" => 3,
-                "date_purchase" => Carbon::create("2022", "03", "31")
+                'id_user' => 1,
+                'id_supplier' => 9,
+                'qty_purchase_inggridients' => 3,
+                'date_purchase' => Carbon::create('2022', '03', '31'),
             ],
             [
-                "id_user" => 1,
-                "id_supplier" => 2,
-                "qty_purchase_inggridients" => 3,
-                "date_purchase" => Carbon::create("2022", "04", "30")
+                'id_user' => 1,
+                'id_supplier' => 2,
+                'qty_purchase_inggridients' => 3,
+                'date_purchase' => Carbon::create('2022', '04', '30'),
             ],
             [
-                "id_user" => 1,
-                "id_supplier" => 7,
-                "qty_purchase_inggridients" => 3,
-                "date_purchase" => Carbon::create("2022", "05", "31")
+                'id_user' => 1,
+                'id_supplier' => 7,
+                'qty_purchase_inggridients' => 3,
+                'date_purchase' => Carbon::create('2022', '05', '31'),
             ],
             [
-                "id_user" => 1,
-                "id_supplier" => 6,
-                "qty_purchase_inggridients" => 3,
-                "date_purchase" => Carbon::create("2022", "06", "30")
-            ]
+                'id_user' => 1,
+                'id_supplier' => 6,
+                'qty_purchase_inggridients' => 3,
+                'date_purchase' => Carbon::create('2022', '06', '30'),
+            ],
         ];
 
         foreach ($purchases as $value) {

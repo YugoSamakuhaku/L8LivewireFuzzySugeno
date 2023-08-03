@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Gate;
-use Illuminate\Http\Response;
-use App\Models\MasterProduct;
-use Illuminate\Support\Facades\App;
-use App\Http\Livewire\Pages\Product\Show;
+use App\Http\Livewire\Pages\Product\Create;
 use App\Http\Livewire\Pages\Product\Edit;
 use App\Http\Livewire\Pages\Product\Index;
-use App\Http\Livewire\Pages\Product\Create;
+use App\Http\Livewire\Pages\Product\Show;
+use App\Models\MasterProduct;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Gate;
 
 class MasterProductController extends Controller
 {

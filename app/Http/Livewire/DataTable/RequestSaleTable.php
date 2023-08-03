@@ -3,12 +3,20 @@
 namespace App\Http\Livewire\DataTable;
 
 use App\Models\RequestSale;
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use PowerComponents\LivewirePowerGrid\Button;
+use PowerComponents\LivewirePowerGrid\Column;
+use PowerComponents\LivewirePowerGrid\Exportable;
+use PowerComponents\LivewirePowerGrid\Footer;
+use PowerComponents\LivewirePowerGrid\Header;
+use PowerComponents\LivewirePowerGrid\PowerGrid;
+use PowerComponents\LivewirePowerGrid\PowerGridComponent;
+use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
-use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
-use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
+use PowerComponents\LivewirePowerGridRules\Rule;
+use PowerComponents\LivewirePowerGridRules\RuleActions;
 
 final class RequestSaleTable extends PowerGridComponent
 {
@@ -49,10 +57,10 @@ final class RequestSaleTable extends PowerGridComponent
     */
 
     /**
-    * PowerGrid datasource.
-    *
-    * @return Builder<\App\Models\RequestSale>
-    */
+     * PowerGrid datasource.
+     *
+     * @return Builder<\App\Models\RequestSale>
+     */
     public function datasource(): Builder
     {
         return RequestSale::query();
@@ -107,7 +115,7 @@ final class RequestSaleTable extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid Columns.
      *
      * @return array<int, Column>
@@ -139,8 +147,7 @@ final class RequestSaleTable extends PowerGridComponent
                 ->sortable()
                 ->makeInputDatePicker(),
 
-        ]
-;
+        ];
     }
 
     /*
@@ -151,11 +158,11 @@ final class RequestSaleTable extends PowerGridComponent
     |
     */
 
-     /**
-     * PowerGrid RequestSale Action Buttons.
-     *
-     * @return array<int, Button>
-     */
+    /**
+    * PowerGrid RequestSale Action Buttons.
+    *
+    * @return array<int, Button>
+    */
 
     /*
     public function actions(): array
@@ -181,11 +188,11 @@ final class RequestSaleTable extends PowerGridComponent
     |
     */
 
-     /**
-     * PowerGrid RequestSale Action Rules.
-     *
-     * @return array<int, RuleActions>
-     */
+    /**
+    * PowerGrid RequestSale Action Rules.
+    *
+    * @return array<int, RuleActions>
+    */
 
     /*
     public function actionRules(): array

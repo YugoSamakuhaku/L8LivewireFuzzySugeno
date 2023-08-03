@@ -8,10 +8,10 @@ use Spatie\Permission\Models\Role;
 class Show extends Component
 {
     public Role $role;
-    
+
     public function mount(Role $role): void
     {
-        $this->role  = $role;
+        $this->role = $role;
     }
 
     public function render()

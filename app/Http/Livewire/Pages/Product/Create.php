@@ -8,7 +8,6 @@ use Livewire\Component;
 
 class Create extends Component
 {
-
     public $unit_product = '';
     public MasterProduct $master_product;
 
@@ -29,11 +28,6 @@ class Create extends Component
     public function render()
     {
         return view('livewire.pages.product.create')->extends('layouts.app')->section('wrapper');
-    }
-
-    protected function listsForInggridient(): void
-    {
-        $this->listsForInggridient['inggridients'] = MasterInggridient::get();
     }
 
     public function add_inggridient()
@@ -80,6 +74,11 @@ class Create extends Component
         $this->master_product->master_inggridients()->sync($sync_data);
     }
 
+    protected function listsForInggridient(): void
+    {
+        $this->listsForInggridient['inggridients'] = MasterInggridient::get();
+    }
+
     protected function rules(): array
     {
         return [
@@ -89,7 +88,7 @@ class Create extends Component
             'master_product.price_product' => [
                 'required',
                 'numeric',
-            ]
+            ],
         ];
     }
 }

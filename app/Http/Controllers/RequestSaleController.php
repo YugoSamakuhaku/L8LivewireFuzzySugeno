@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Gate;
+use App\Http\Livewire\Pages\Sale\Create;
+use App\Http\Livewire\Pages\Sale\Index;
+use App\Http\Livewire\Pages\Sale\Show;
 use App\Models\RequestSale;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
-use App\Http\Livewire\Pages\Sale\Show;
-use App\Http\Livewire\Pages\Sale\Index;
-use App\Http\Livewire\Pages\Sale\Create;
+use Illuminate\Support\Facades\Gate;
 
 class RequestSaleController extends Controller
 {

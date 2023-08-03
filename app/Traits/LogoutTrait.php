@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
-use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 trait LogoutTrait
@@ -13,7 +12,7 @@ trait LogoutTrait
 
     public function logout(): void
     {
-        Auth::logout();
+        auth()->logout();
 
         $this->flash('success', 'Successful Logout', [
             'position' => 'top-end',

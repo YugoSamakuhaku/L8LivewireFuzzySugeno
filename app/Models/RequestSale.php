@@ -2,10 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\User;
-use App\Models\MasterProduct;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class RequestSale extends Model
 {
@@ -26,6 +24,7 @@ class RequestSale extends Model
     {
         $this->belongsTo(User::class);
     }
+
     public function master_products()
     {
         return $this->belongsToMany(MasterProduct::class, 'detail_request_sales', 'id_sale', 'id_product')->withPivot('qty');

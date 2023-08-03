@@ -8,11 +8,10 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 class MasterProductObserver
 {
     use LivewireAlert;
-    
+
     /**
      * Handle the MasterProduct "created" event.
      *
-     * @param  \App\Models\MasterProduct  $masterProduct
      * @return void
      */
     public function created(MasterProduct $masterProduct)
@@ -29,7 +28,6 @@ class MasterProductObserver
     /**
      * Handle the MasterProduct "updated" event.
      *
-     * @param  \App\Models\MasterProduct  $masterProduct
      * @return void
      */
     public function updated(MasterProduct $masterProduct)
@@ -46,7 +44,6 @@ class MasterProductObserver
     /**
      * Handle the MasterProduct "deleted" event.
      *
-     * @param  \App\Models\MasterProduct  $masterProduct
      * @return void
      */
     public function deleted(MasterProduct $masterProduct)
@@ -63,7 +60,6 @@ class MasterProductObserver
     /**
      * Handle the MasterProduct "restored" event.
      *
-     * @param  \App\Models\MasterProduct  $masterProduct
      * @return void
      */
     public function restored(MasterProduct $masterProduct)
@@ -74,7 +70,6 @@ class MasterProductObserver
     /**
      * Handle the MasterProduct "force deleted" event.
      *
-     * @param  \App\Models\MasterProduct  $masterProduct
      * @return void
      */
     public function forceDeleted(MasterProduct $masterProduct)

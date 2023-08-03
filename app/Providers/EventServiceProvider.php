@@ -2,20 +2,20 @@
 
 namespace App\Providers;
 
-use App\Models\User;
-use App\Models\Supplier;
-use App\Models\MasterProduct;
-use App\Observers\RoleObserver;
-use App\Observers\UserObserver;
 use App\Models\MasterInggridient;
-use Spatie\Permission\Models\Role;
-use App\Observers\SupplierObserver;
-use Illuminate\Support\Facades\Event;
-use Illuminate\Auth\Events\Registered;
-use App\Observers\MasterProductObserver;
+use App\Models\MasterProduct;
+use App\Models\Supplier;
+use App\Models\User;
 use App\Observers\MasterInggridientObserver;
+use App\Observers\MasterProductObserver;
+use App\Observers\RoleObserver;
+use App\Observers\SupplierObserver;
+use App\Observers\UserObserver;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Event;
+use Spatie\Permission\Models\Role;
 
 class EventServiceProvider extends ServiceProvider
 {

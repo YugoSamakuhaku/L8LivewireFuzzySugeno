@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateInggridientHistoriesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('inggridient_histories', function (Blueprint $table) {
@@ -25,11 +20,6 @@ class CreateInggridientHistoriesTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('inggridient_histories');

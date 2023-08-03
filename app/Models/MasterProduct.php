@@ -2,10 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\RequestSale;
-use App\Models\MasterInggridient;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class MasterProduct extends Model
 {

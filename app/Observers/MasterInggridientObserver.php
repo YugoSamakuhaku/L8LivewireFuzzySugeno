@@ -8,11 +8,10 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 class MasterInggridientObserver
 {
     use LivewireAlert;
-    
+
     /**
      * Handle the MasterInggridient "created" event.
      *
-     * @param  \App\Models\MasterInggridient  $masterInggridient
      * @return void
      */
     public function created(MasterInggridient $masterInggridient)
@@ -29,7 +28,6 @@ class MasterInggridientObserver
     /**
      * Handle the MasterInggridient "updated" event.
      *
-     * @param  \App\Models\MasterInggridient  $masterInggridient
      * @return void
      */
     public function updated(MasterInggridient $masterInggridient)
@@ -46,7 +44,6 @@ class MasterInggridientObserver
     /**
      * Handle the MasterInggridient "deleted" event.
      *
-     * @param  \App\Models\MasterInggridient  $masterInggridient
      * @return void
      */
     public function deleted(MasterInggridient $masterInggridient)
@@ -63,7 +60,6 @@ class MasterInggridientObserver
     /**
      * Handle the MasterInggridient "restored" event.
      *
-     * @param  \App\Models\MasterInggridient  $masterInggridient
      * @return void
      */
     public function restored(MasterInggridient $masterInggridient)
@@ -74,7 +70,6 @@ class MasterInggridientObserver
     /**
      * Handle the MasterInggridient "force deleted" event.
      *
-     * @param  \App\Models\MasterInggridient  $masterInggridient
      * @return void
      */
     public function forceDeleted(MasterInggridient $masterInggridient)

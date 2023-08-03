@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Pages\Inggridient;
 
-use Livewire\Component;
 use App\Models\MasterInggridient;
+use Livewire\Component;
 
 class Edit extends Component
 {
@@ -40,7 +40,7 @@ class Edit extends Component
             'master_inggridient.price_inggridient' => [
                 'required',
                 'numeric',
-            ]
+            ],
         ];
     }
 }

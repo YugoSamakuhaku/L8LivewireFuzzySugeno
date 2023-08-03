@@ -2,13 +2,11 @@
 
 namespace App\Http\Livewire\Auth;
 
-use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Component;
 
 class Login extends Component
 {
-
     use LivewireAlert;
 
     public $username;
@@ -23,7 +21,7 @@ class Login extends Component
     {
         $credentials = $this->validate();
 
-        if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']])) {
+        if (auth()->attempt(['username' => $credentials['username'], 'password' => $credentials['password']])) {
             return redirect()->route('dashboard');
         }
 

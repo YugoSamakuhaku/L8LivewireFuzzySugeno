@@ -2,16 +2,24 @@
 
 namespace App\Http\Livewire\DataTable;
 
-use Gate;
 use App\Models\Supplier;
-use Illuminate\Support\Str;
-use Illuminate\Http\Response;
-use Illuminate\Support\Carbon;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use PowerComponents\LivewirePowerGrid\Button;
+use PowerComponents\LivewirePowerGrid\Column;
+use PowerComponents\LivewirePowerGrid\Exportable;
+use PowerComponents\LivewirePowerGrid\Footer;
+use PowerComponents\LivewirePowerGrid\Header;
+use PowerComponents\LivewirePowerGrid\PowerGrid;
+use PowerComponents\LivewirePowerGrid\PowerGridComponent;
+use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
-use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
-use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
+use PowerComponents\LivewirePowerGridRules\Rule;
+use PowerComponents\LivewirePowerGridRules\RuleActions;
 
 final class SupplierTable extends PowerGridComponent
 {
@@ -20,17 +28,6 @@ final class SupplierTable extends PowerGridComponent
 
     public string $primaryKey = 'id_supplier';
     public string $sortField = 'id_supplier';
-
-    protected function getListeners(): array
-    {
-        return array_merge(
-            parent::getListeners(),
-            [
-                'delete-data' => 'deleteData',
-                'confirmed-alert' => 'confirmed',
-            ]
-        );
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -148,7 +145,6 @@ final class SupplierTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
-
         ];
     }
 
@@ -165,15 +161,14 @@ final class SupplierTable extends PowerGridComponent
      *
      * @return array<int, Button>
      */
-
     public function actions(): array
     {
         return [
             Button::make('show', 'Show')
-            ->class('btn btn-sm btn-info fas fa-eye')
-            ->route('supplier.show', ['supplier' => 'id_supplier'])
-            ->can(auth()->User()->hasPermissionTo('suppliers_show'))
-            ->target('_self'),
+                ->class('btn btn-sm btn-info fas fa-eye')
+                ->route('supplier.show', ['supplier' => 'id_supplier'])
+                ->can(auth()->User()->hasPermissionTo('suppliers_show'))
+                ->target('_self'),
 
             Button::make('edit', 'Edit')
                 ->class('btn btn-sm btn-warning fas fa-edit')
@@ -185,7 +180,7 @@ final class SupplierTable extends PowerGridComponent
                 ->caption('Delete')
                 ->class('btn btn-sm btn-danger fas fa-trash-alt')
                 ->emit('delete-data', ['supplier' => 'id_supplier'])
-                ->can(auth()->User()->hasPermissionTo('suppliers_delete'))
+                ->can(auth()->User()->hasPermissionTo('suppliers_delete')),
         ];
     }
 
@@ -222,7 +217,7 @@ final class SupplierTable extends PowerGridComponent
 
         $this->confirm('Delete Data!!', [
             'inputAttributes' => [
-                'value' => $supplier
+                'value' => $supplier,
             ],
             'position' => 'center',
             'timer' => '',
@@ -244,7 +239,7 @@ final class SupplierTable extends PowerGridComponent
 
         try {
             $supplier->delete();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->alert('error', 'Failed to Delete Data', [
                 'position' => 'top-end',
                 'timer' => 5000,
@@ -254,5 +249,16 @@ final class SupplierTable extends PowerGridComponent
                 'width' => '400',
             ]);
         }
+    }
+
+    protected function getListeners(): array
+    {
+        return array_merge(
+            parent::getListeners(),
+            [
+                'delete-data' => 'deleteData',
+                'confirmed-alert' => 'confirmed',
+            ]
+        );
     }
 }

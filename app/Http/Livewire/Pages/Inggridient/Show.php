@@ -8,10 +8,10 @@ use Livewire\Component;
 class Show extends Component
 {
     public MasterInggridient $master_inggridient;
-    
+
     public function mount(MasterInggridient $master_inggridient): void
     {
-        $this->master_inggridient  = $master_inggridient;
+        $this->master_inggridient = $master_inggridient;
     }
 
     public function render()

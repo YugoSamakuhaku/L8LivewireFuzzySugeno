@@ -2,13 +2,13 @@
 
 namespace App\Observers;
 
-use Spatie\Permission\Models\Role;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Spatie\Permission\Models\Role;
 
 class RoleObserver
 {
     use LivewireAlert;
-    
+
     /**
      * Handle the Role "created" event.
      *

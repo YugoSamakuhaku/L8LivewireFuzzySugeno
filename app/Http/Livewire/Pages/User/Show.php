@@ -8,10 +8,10 @@ use Livewire\Component;
 class Show extends Component
 {
     public User $user;
-    
+
     public function mount(User $user): void
     {
-        $this->user  = $user;
+        $this->user = $user;
     }
 
     public function render()

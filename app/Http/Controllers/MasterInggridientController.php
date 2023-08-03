@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Gate;
-use Illuminate\Http\Response;
-use App\Models\MasterInggridient;
-use Illuminate\Support\Facades\App;
-use App\Http\Livewire\Pages\Inggridient\Show;
+use App\Http\Livewire\Pages\Inggridient\Create;
 use App\Http\Livewire\Pages\Inggridient\Edit;
 use App\Http\Livewire\Pages\Inggridient\Index;
-use App\Http\Livewire\Pages\Inggridient\Create;
+use App\Http\Livewire\Pages\Inggridient\Show;
+use App\Models\MasterInggridient;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Gate;
 
 class MasterInggridientController extends Controller
 {

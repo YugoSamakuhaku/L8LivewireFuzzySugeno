@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateRequestSalesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('request_sales', function (Blueprint $table) {
@@ -24,11 +19,6 @@ class CreateRequestSalesTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('request_sales');

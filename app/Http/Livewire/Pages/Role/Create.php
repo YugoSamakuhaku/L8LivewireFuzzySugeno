@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Pages\Role;
 
-use Livewire\Component;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Component;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class Create extends Component
 {
@@ -27,17 +27,17 @@ class Create extends Component
         return view('livewire.pages.role.create')->extends('layouts.app')->section('wrapper');
     }
 
-    protected function initListsForFields(): void
-    {
-        $this->listsForFields['permissions'] = Permission::pluck('name', 'id');
-    }
-
     public function submit(): void
     {
         $this->validate();
 
         $this->role->save();
         $this->role->syncPermissions($this->permissions);
+    }
+
+    protected function initListsForFields(): void
+    {
+        $this->listsForFields['permissions'] = Permission::pluck('name', 'id');
     }
 
     protected function rules(): array

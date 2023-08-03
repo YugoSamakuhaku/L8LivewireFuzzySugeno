@@ -2,16 +2,24 @@
 
 namespace App\Http\Livewire\DataTable;
 
-use Gate;
-use Illuminate\Support\Str;
+use App\Models\MasterInggridient;
+use Exception;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
-use App\Models\MasterInggridient;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Gate;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use PowerComponents\LivewirePowerGrid\Button;
+use PowerComponents\LivewirePowerGrid\Column;
+use PowerComponents\LivewirePowerGrid\Exportable;
+use PowerComponents\LivewirePowerGrid\Footer;
+use PowerComponents\LivewirePowerGrid\Header;
+use PowerComponents\LivewirePowerGrid\PowerGrid;
+use PowerComponents\LivewirePowerGrid\PowerGridComponent;
+use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
-use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
-use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
+use PowerComponents\LivewirePowerGridRules\Rule;
+use PowerComponents\LivewirePowerGridRules\RuleActions;
 
 final class MasterInggridientTable extends PowerGridComponent
 {
@@ -20,17 +28,6 @@ final class MasterInggridientTable extends PowerGridComponent
 
     public string $primaryKey = 'id_inggridient';
     public string $sortField = 'id_inggridient';
-
-    protected function getListeners(): array
-    {
-        return array_merge(
-            parent::getListeners(),
-            [
-                'delete-data' => 'deleteData',
-                'confirmed-alert' => 'confirmed',
-            ]
-        );
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -171,7 +168,6 @@ final class MasterInggridientTable extends PowerGridComponent
      *
      * @return array<int, Button>
      */
-
     public function actions(): array
     {
         return [
@@ -191,7 +187,7 @@ final class MasterInggridientTable extends PowerGridComponent
                 ->caption('Delete')
                 ->class('btn btn-sm btn-danger fas fa-trash-alt')
                 ->emit('delete-data', ['master_inggridient' => 'id_inggridient'])
-                ->can(auth()->User()->hasPermissionTo('master_inggridients_delete'))
+                ->can(auth()->User()->hasPermissionTo('master_inggridients_delete')),
         ];
     }
 
@@ -228,7 +224,7 @@ final class MasterInggridientTable extends PowerGridComponent
 
         $this->confirm('Delete Data!!', [
             'inputAttributes' => [
-                'value' => $master_inggridient
+                'value' => $master_inggridient,
             ],
             'position' => 'center',
             'timer' => '',
@@ -250,7 +246,7 @@ final class MasterInggridientTable extends PowerGridComponent
 
         try {
             $master_inggridient->delete();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->alert('error', 'Failed to Delete Data', [
                 'position' => 'top-end',
                 'timer' => 5000,
@@ -260,5 +256,16 @@ final class MasterInggridientTable extends PowerGridComponent
                 'width' => '400',
             ]);
         }
+    }
+
+    protected function getListeners(): array
+    {
+        return array_merge(
+            parent::getListeners(),
+            [
+                'delete-data' => 'deleteData',
+                'confirmed-alert' => 'confirmed',
+            ]
+        );
     }
 }

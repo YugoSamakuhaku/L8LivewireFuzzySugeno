@@ -2,15 +2,23 @@
 
 namespace App\Http\Livewire\DataTable;
 
-use Gate;
 use App\Models\User;
-use Illuminate\Http\Response;
-use Illuminate\Support\Carbon;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Gate;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use PowerComponents\LivewirePowerGrid\Button;
+use PowerComponents\LivewirePowerGrid\Column;
+use PowerComponents\LivewirePowerGrid\Exportable;
+use PowerComponents\LivewirePowerGrid\Footer;
+use PowerComponents\LivewirePowerGrid\Header;
+use PowerComponents\LivewirePowerGrid\PowerGrid;
+use PowerComponents\LivewirePowerGrid\PowerGridComponent;
+use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
-use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
-use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
+use PowerComponents\LivewirePowerGridRules\Rule;
+use PowerComponents\LivewirePowerGridRules\RuleActions;
 
 final class UserTable extends PowerGridComponent
 {
@@ -19,17 +27,6 @@ final class UserTable extends PowerGridComponent
 
     public string $primaryKey = 'id_user';
     public string $sortField = 'id_user';
-
-    protected function getListeners(): array
-    {
-        return array_merge(
-            parent::getListeners(),
-            [
-                'delete-data' => 'deleteData',
-                'confirmed-alert' => 'confirmed',
-            ]
-        );
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -158,8 +155,6 @@ final class UserTable extends PowerGridComponent
      *
      * @return array<int, Button>
      */
-
-
     public function actions(): array
     {
         return [
@@ -168,7 +163,7 @@ final class UserTable extends PowerGridComponent
                 ->route('user.show', ['user' => 'id_user'])
                 ->can(auth()->User()->hasPermissionTo('users_show'))
                 ->target('_self'),
-                
+
             Button::make('edit', 'Edit')
                 ->class('btn btn-sm btn-warning fas fa-edit')
                 ->route('user.edit', ['user' => 'id_user'])
@@ -179,10 +174,9 @@ final class UserTable extends PowerGridComponent
                 ->caption('Delete')
                 ->class('btn btn-sm btn-danger fas fa-trash-alt')
                 ->emit('delete-data', ['user' => 'id_user'])
-                ->can(auth()->User()->hasPermissionTo('users_delete'))
+                ->can(auth()->User()->hasPermissionTo('users_delete')),
         ];
     }
-
 
     /*
     |--------------------------------------------------------------------------
@@ -217,7 +211,7 @@ final class UserTable extends PowerGridComponent
 
         $this->confirm('Delete Data!!', [
             'inputAttributes' => [
-                'value' => $user
+                'value' => $user,
             ],
             'position' => 'center',
             'timer' => '',
@@ -239,7 +233,7 @@ final class UserTable extends PowerGridComponent
 
         try {
             $user->delete();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->alert('error', 'Failed to Delete Data', [
                 'position' => 'top-end',
                 'timer' => 5000,
@@ -249,5 +243,16 @@ final class UserTable extends PowerGridComponent
                 'width' => '400',
             ]);
         }
+    }
+
+    protected function getListeners(): array
+    {
+        return array_merge(
+            parent::getListeners(),
+            [
+                'delete-data' => 'deleteData',
+                'confirmed-alert' => 'confirmed',
+            ]
+        );
     }
 }

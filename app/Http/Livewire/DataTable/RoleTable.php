@@ -2,31 +2,29 @@
 
 namespace App\Http\Livewire\DataTable;
 
-use Gate;
+use Exception;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
-use Spatie\Permission\Models\Role;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Gate;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use PowerComponents\LivewirePowerGrid\Button;
+use PowerComponents\LivewirePowerGrid\Column;
+use PowerComponents\LivewirePowerGrid\Exportable;
+use PowerComponents\LivewirePowerGrid\Footer;
+use PowerComponents\LivewirePowerGrid\Header;
+use PowerComponents\LivewirePowerGrid\PowerGrid;
+use PowerComponents\LivewirePowerGrid\PowerGridComponent;
+use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
-use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
-use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
+use PowerComponents\LivewirePowerGridRules\Rule;
+use PowerComponents\LivewirePowerGridRules\RuleActions;
+use Spatie\Permission\Models\Role;
 
 final class RoleTable extends PowerGridComponent
 {
     use ActionButton;
     use LivewireAlert;
-
-    protected function getListeners(): array
-    {
-        return array_merge(
-            parent::getListeners(),
-            [
-                'delete-data' => 'deleteData',
-                'confirmed-alert' => 'confirmed',
-            ]
-        );
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -147,16 +145,14 @@ final class RoleTable extends PowerGridComponent
      *
      * @return array<int, Button>
      */
-
-
     public function actions(): array
     {
         return [
             Button::make('show', 'Show')
-            ->class('btn btn-sm btn-info fas fa-eye')
-            ->route('role.show', ['role' => 'id'])
-            ->can(auth()->User()->hasPermissionTo('roles_show'))
-            ->target('_self'),
+                ->class('btn btn-sm btn-info fas fa-eye')
+                ->route('role.show', ['role' => 'id'])
+                ->can(auth()->User()->hasPermissionTo('roles_show'))
+                ->target('_self'),
 
             Button::make('edit', 'Edit')
                 ->class('btn btn-sm btn-warning fas fa-edit')
@@ -168,10 +164,9 @@ final class RoleTable extends PowerGridComponent
                 ->caption('Delete')
                 ->class('btn btn-sm btn-danger fas fa-trash-alt')
                 ->emit('delete-data', ['role' => 'id'])
-                ->can(auth()->User()->hasPermissionTo('roles_delete'))
+                ->can(auth()->User()->hasPermissionTo('roles_delete')),
         ];
     }
-
 
     /*
     |--------------------------------------------------------------------------
@@ -206,7 +201,7 @@ final class RoleTable extends PowerGridComponent
 
         $this->confirm('Delete Data!!', [
             'inputAttributes' => [
-                'value' => $role
+                'value' => $role,
             ],
             'position' => 'center',
             'timer' => '',
@@ -228,7 +223,7 @@ final class RoleTable extends PowerGridComponent
 
         try {
             $role->delete();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->alert('error', 'Failed to Delete Data', [
                 'position' => 'top-end',
                 'timer' => 5000,
@@ -238,5 +233,16 @@ final class RoleTable extends PowerGridComponent
                 'width' => '400',
             ]);
         }
+    }
+
+    protected function getListeners(): array
+    {
+        return array_merge(
+            parent::getListeners(),
+            [
+                'delete-data' => 'deleteData',
+                'confirmed-alert' => 'confirmed',
+            ]
+        );
     }
 }

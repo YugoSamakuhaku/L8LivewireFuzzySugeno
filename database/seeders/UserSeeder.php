@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
                 'fullname' => 'Employee',
                 'username' => 'employee',
                 'password' => bcrypt('employee'),
-            ]
+            ],
         ];
 
         foreach ($user as $value) {

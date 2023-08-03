@@ -15,7 +15,7 @@ return [
 
     // 'theme' => \PowerComponents\LivewirePowerGrid\Themes\Tailwind::class,
     // 'theme' => \PowerComponents\LivewirePowerGrid\Themes\Bootstrap5::class,
-    'theme' =>  AdminLTE3::class,
+    'theme' => AdminLTE3::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ return [
          * https://github.com/snapappointments/bootstrap-select
          */
         'bootstrap-select' => [
-            'js'  => 'https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js',
+            'js' => 'https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js',
             'css' => 'https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css',
         ],
         /*
@@ -42,10 +42,10 @@ return [
             // 'css'     => 'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css',
             'locales' => [
                 'pt_BR' => [
-                    'locale'     => 'default',
+                    'locale' => 'default',
                     'dateFormat' => 'd/m/Y',
                     'enableTime' => true,
-                    'time_24hr'  => true,
+                    'time_24hr' => true,
                 ],
             ],
         ],

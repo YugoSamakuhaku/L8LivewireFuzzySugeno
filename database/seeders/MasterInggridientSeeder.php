@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\MasterInggridient;
+use Illuminate\Database\Seeder;
 
 class MasterInggridientSeeder extends Seeder
 {

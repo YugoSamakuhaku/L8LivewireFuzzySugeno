@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Gate;
+use App\Http\Livewire\Pages\User\Create;
+use App\Http\Livewire\Pages\User\Edit;
+use App\Http\Livewire\Pages\User\Index;
+use App\Http\Livewire\Pages\User\Show;
 use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
-use App\Http\Livewire\Pages\User\Show;
-use App\Http\Livewire\Pages\User\Edit;
-use App\Http\Livewire\Pages\User\Index;
-use App\Http\Livewire\Pages\User\Create;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
