@@ -14,7 +14,7 @@ return [
     */
 
     // 'theme' => \PowerComponents\LivewirePowerGrid\Themes\Tailwind::class,
-    //'theme' => \PowerComponents\LivewirePowerGrid\Themes\Bootstrap5::class,
+    // 'theme' => \PowerComponents\LivewirePowerGrid\Themes\Bootstrap5::class,
     'theme' =>  AdminLTE3::class,
 
     /*
@@ -38,12 +38,12 @@ return [
          * https://flatpickr.js.org
          */
         'flatpickr' => [
-            'js'      => 'https://cdn.jsdelivr.net/npm/flatpickr',
-            'css'     => 'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css',
+            // 'js'      => 'https://cdn.jsdelivr.net/npm/flatpickr',
+            // 'css'     => 'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css',
             'locales' => [
                 'pt_BR' => [
                     'locale'     => 'default',
-                    'dateFormat' => 'd/m/Y H:i',
+                    'dateFormat' => 'd/m/Y',
                     'enableTime' => true,
                     'time_24hr'  => true,
                 ],

@@ -139,9 +139,10 @@ final class PurchaseTable extends PowerGridComponent
                 ->searchable()
                 ->sortable(),
             
-                Column::make('DATE PURCHASE', 'date_purchase_formatted')
+                Column::make('DATE PURCHASE', 'date_purchase_formatted', 'date_purchase')
                 ->searchable()
-                ->sortable(),
+                ->sortable()
+                ->makeInputDatePicker(),
         ];
     }
 

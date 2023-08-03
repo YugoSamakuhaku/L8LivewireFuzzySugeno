@@ -16,5 +16,5 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
 
     @livewireStyles
-
+    @livewireStyles
 </head>
