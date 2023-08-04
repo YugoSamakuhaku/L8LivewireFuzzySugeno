@@ -62,6 +62,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Purchase::class, 'id_user', 'id_user');
     }
+    
+    public function request_sales()
+    {
+        return $this->hasMany(RequestSale::class, 'id_user', 'id_user');
+    }
 
     protected function serializeDate(DateTimeInterface $date)
     {

@@ -24,7 +24,7 @@ class RequestSale extends Model
 
     public function users(): void
     {
-        $this->belongsTo(User::class);
+        $this->belongsTo(User::class, 'id_user', 'id_user');
     }
 
     public function master_products()
