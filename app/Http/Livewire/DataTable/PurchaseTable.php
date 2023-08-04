@@ -103,7 +103,7 @@ final class PurchaseTable extends PowerGridComponent
             ->addColumn('id_purchase_format', fn (Purchase $model) => 'PU-' . '' . str_pad('' . $model->id_purchase, 5, '0', STR_PAD_LEFT))
             ->addColumn('name_supplier', fn (Purchase $model) => $model->suppliers->name_supplier)
             ->addColumn('name_user', fn (Purchase $model) => $model->users->fullname)
-            ->addColumn('total_price_inggridient', fn (Purchase $model) => $model->master_inggridients->sum('pivot.total_price_inggridient'))
+            ->addColumn('total_price_inggridient', fn (Purchase $model) => format_uang($model->master_inggridients->sum('pivot.total_price_inggridient')))
             ->addColumn('date_purchase_formatted', fn (Purchase $model) => Carbon::parse($model->date_purchase)->format('l, d F Y'))
             ->addColumn('created_at_formatted', fn (Purchase $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
             ->addColumn('updated_at_formatted', fn (Purchase $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));

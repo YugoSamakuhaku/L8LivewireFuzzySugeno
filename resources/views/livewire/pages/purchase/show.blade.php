@@ -62,14 +62,14 @@
                                         <tr>
                                             <td>{{ 'B-' . '' . str_pad('' . $master_inggridients->id_inggridient, 5, '0', STR_PAD_LEFT) }}</td>
                                             <td>{{ $master_inggridients->name_inggridient }}</td>
-                                            <td>{{ $master_inggridients->price_inggridient }}</td>
-                                            <td>{{ $master_inggridients->pivot->qty }}</td>
-                                            <td>{{ $master_inggridients->pivot->total_price_inggridient }}</td>
+                                            <td>{{ format_uang($master_inggridients->price_inggridient) }}</td>
+                                            <td>{{ format_uang($master_inggridients->pivot->qty) }}</td>
+                                            <td>{{ format_uang($master_inggridients->pivot->total_price_inggridient) }}</td>
                                         </tr>
                                         @if ($loop->last)
                                             <tr>
                                                 <td colspan="4"><strong>SUBTOTAL</strong></td>
-                                                <td><strong>{{ $subtotal }}</strong></td>
+                                                <td><strong>{{ format_uang($subtotal) }}</strong></td>
                                             </tr>
                                         @endif
                                     @endforeach

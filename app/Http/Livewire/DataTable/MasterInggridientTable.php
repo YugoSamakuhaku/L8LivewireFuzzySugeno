@@ -111,7 +111,7 @@ final class MasterInggridientTable extends PowerGridComponent
 
             ->addColumn('qty_inggridient')
             ->addColumn('unit_inggridient')
-            ->addColumn('price_inggridient')
+            ->addColumn('price_inggridient', fn (MasterInggridient $model) => format_uang($model->price_inggridient))
             ->addColumn('duration_expired')
             ->addColumn('time_expired')
             ->addColumn('updated_at_formatted', fn (MasterInggridient $model) => Carbon::parse($model->updated_at)->format('l, d F Y'));
