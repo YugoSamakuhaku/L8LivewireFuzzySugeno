@@ -1,12 +1,9 @@
-@if(data_get($setUp, 'header.softDeletes'))
+@if (data_get($setUp, 'header.softDeletes'))
     <div class="btn-group">
-        <button class="btn btn-secondary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false">
-                    <span>
-                   <x-livewire-powergrid::icons.trash/>
-                </span>
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <span>
+                <x-livewire-powergrid::icons.trash />
+            </span>
         </button>
         <ul class="dropdown-menu">
             <li wire:click="$emit('pg:softDeletes-{{ $tableName }}', '')">

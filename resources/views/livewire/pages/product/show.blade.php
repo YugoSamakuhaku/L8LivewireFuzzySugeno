@@ -56,12 +56,12 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($this->master_product->master_inggridients as $master_inggridients)
-                                    <tr>
-                                        <td>{{ 'B-' . '' . str_pad('' . $master_inggridients->id_inggridient, 5, '0', STR_PAD_LEFT) }}</td>
-                                        <td>{{ $master_inggridients->name_inggridient }}</td>
-                                        <td>{{ $master_inggridients->pivot->usage_amount }} {{ $master_inggridients->unit_inggridient }}</td>
-                                        <td>{{ $master_inggridients->price_inggridient }}</td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{ 'B-' . '' . str_pad('' . $master_inggridients->id_inggridient, 5, '0', STR_PAD_LEFT) }}</td>
+                                            <td>{{ $master_inggridients->name_inggridient }}</td>
+                                            <td>{{ $master_inggridients->pivot->usage_amount }} {{ $master_inggridients->unit_inggridient }}</td>
+                                            <td>{{ $master_inggridients->price_inggridient }}</td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>

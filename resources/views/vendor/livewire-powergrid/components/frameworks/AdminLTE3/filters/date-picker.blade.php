@@ -27,8 +27,7 @@
 })">
     <div class="{{ $theme->baseClass }}" style="{{ $theme->baseStyle }}">
         <form autocomplete="off">
-            <input id="input_{{ data_get($date, 'field') }}" x-ref="rangeInput" autocomplete="off" data-field="{{ data_get($date, 'dataField') }}" style="{{ $theme->inputStyle }} {{ data_get($column, 'headerStyle') }}" class="power_grid {{ $theme->inputClass }} {{ data_get($column, 'headerClass') }}" type="text" readonly
-                placeholder="{{ trans('livewire-powergrid::datatable.placeholders.select') }}" />
+            <input id="input_{{ data_get($date, 'field') }}" x-ref="rangeInput" autocomplete="off" data-field="{{ data_get($date, 'dataField') }}" style="{{ $theme->inputStyle }} {{ data_get($column, 'headerStyle') }}" class="power_grid {{ $theme->inputClass }} {{ data_get($column, 'headerClass') }}" type="text" readonly placeholder="{{ trans('livewire-powergrid::datatable.placeholders.select') }}" />
         </form>
     </div>
 </div>

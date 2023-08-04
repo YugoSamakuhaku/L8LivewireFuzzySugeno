@@ -41,7 +41,7 @@
                                     <td style="width: 130px"><strong>ROLES</strong></td>
                                     <td>
                                         @foreach ($this->user->getRoleNames() as $role)
-                                        <span class="badge bg-primary">{{ $role }}</span>
+                                            <span class="badge bg-primary">{{ $role }}</span>
                                         @endforeach
                                     </td>
                                 </tr>

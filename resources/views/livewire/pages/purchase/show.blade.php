@@ -53,25 +53,25 @@
                                 </thead>
                                 <tbody>
                                     @php
-                                    $subtotal = 0;
+                                        $subtotal = 0;
                                     @endphp
                                     @foreach ($this->purchase->master_inggridients as $master_inggridients)
-                                    @php
-                                    $subtotal += $master_inggridients->pivot->total_price_inggridient;
-                                    @endphp
-                                    <tr>
-                                        <td>{{ 'B-' . '' . str_pad('' . $master_inggridients->id_inggridient, 5, '0', STR_PAD_LEFT) }}</td>
-                                        <td>{{ $master_inggridients->name_inggridient }}</td>
-                                        <td>{{ $master_inggridients->price_inggridient }}</td>
-                                        <td>{{ $master_inggridients->pivot->qty }}</td>
-                                        <td>{{ $master_inggridients->pivot->total_price_inggridient }}</td>
-                                    </tr>
-                                    @if ($loop->last)
-                                    <tr>
-                                        <td colspan="4"><strong>SUBTOTAL</strong></td>
-                                        <td><strong>{{ $subtotal }}</strong></td>
-                                    </tr>
-                                    @endif
+                                        @php
+                                            $subtotal += $master_inggridients->pivot->total_price_inggridient;
+                                        @endphp
+                                        <tr>
+                                            <td>{{ 'B-' . '' . str_pad('' . $master_inggridients->id_inggridient, 5, '0', STR_PAD_LEFT) }}</td>
+                                            <td>{{ $master_inggridients->name_inggridient }}</td>
+                                            <td>{{ $master_inggridients->price_inggridient }}</td>
+                                            <td>{{ $master_inggridients->pivot->qty }}</td>
+                                            <td>{{ $master_inggridients->pivot->total_price_inggridient }}</td>
+                                        </tr>
+                                        @if ($loop->last)
+                                            <tr>
+                                                <td colspan="4"><strong>SUBTOTAL</strong></td>
+                                                <td><strong>{{ $subtotal }}</strong></td>
+                                            </tr>
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>

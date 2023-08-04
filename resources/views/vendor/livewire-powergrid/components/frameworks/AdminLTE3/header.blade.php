@@ -19,9 +19,7 @@
                 <div class="row">
                     <label class="col-sm-3 col-form-label">Filter by Date:</label>
                     <div class="col-sm-8">
-                        <x-livewire-powergrid::inline-filters :makeFilters="$makeFilters" :checkbox="$checkbox" :actions="$actions"
-                            :columns="$columns" :theme="$theme" :filters="$filters" :enabledFilters="$enabledFilters" :inputTextOptions="$inputTextOptions"
-                            :tableName="$tableName" :setUp="$setUp" />
+                        <x-livewire-powergrid::inline-filters :makeFilters="$makeFilters" :checkbox="$checkbox" :actions="$actions" :columns="$columns" :theme="$theme" :filters="$filters" :enabledFilters="$enabledFilters" :inputTextOptions="$inputTextOptions" :tableName="$tableName" :setUp="$setUp" />
                     </div>
                 </div>
             </div>

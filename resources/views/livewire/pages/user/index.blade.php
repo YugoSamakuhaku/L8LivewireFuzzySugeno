@@ -19,9 +19,9 @@
             <section class="content">
                 <div class="card">
                     @can('users_create')
-                    <div class="card-header">
-                        <a href="{{ route('user.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Create NewData</a>
-                    </div>
+                        <div class="card-header">
+                            <a href="{{ route('user.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Create NewData</a>
+                        </div>
                     @endcan
                     <!-- ./card-header -->
                     <div class="card-body pt-4">

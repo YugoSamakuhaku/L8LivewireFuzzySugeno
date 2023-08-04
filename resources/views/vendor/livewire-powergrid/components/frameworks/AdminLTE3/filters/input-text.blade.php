@@ -22,8 +22,7 @@
             <div class="mt-1">
                 <input data-id="{{ $field }}" @if (isset($enabledFilters[$field]['disabled']) && boolval($enabledFilters[$field]['disabled']) === true) disabled @else
                     wire:model.debounce.800ms="filters.input_text.{{ $field }}"
-                    wire:input.debounce.800ms="filterInputText('{{ $field }}', $event.target.value, '{{ data_get($inputText, 'label') }}')" @endif type="text"
-                    class="power_grid {{ $theme->inputClass }}" placeholder="{{ empty($column) ? data_get($inputText, 'label') : ($column->placeholder ?: $column->title) }}" />
+                    wire:input.debounce.800ms="filterInputText('{{ $field }}', $event.target.value, '{{ data_get($inputText, 'label') }}')" @endif type="text" class="power_grid {{ $theme->inputClass }}" placeholder="{{ empty($column) ? data_get($inputText, 'label') : ($column->placeholder ?: $column->title) }}" />
             </div>
         </div>
     @endif

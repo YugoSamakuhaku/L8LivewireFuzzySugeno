@@ -28,9 +28,9 @@
                                     <label for="name_product">Name Product</label>
                                     <input type="text" class="form-control @error('master_product.name_product') is-invalid @enderror" id="name_product" placeholder="Enter Name master_product" wire:model.defer="master_product.name_product">
                                     @error('master_product.name_product')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                                 <div class="form-group">
@@ -46,9 +46,9 @@
                                     <label for="price_product">Price Product</label>
                                     <input type="number" class="form-control @error('master_product.price_product') is-invalid @enderror" id="price_product" placeholder="Enter Name master_product" wire:model.defer="master_product.price_product">
                                     @error('master_product.price_product')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                                 <div class="form-group">
@@ -75,8 +75,8 @@
                                             <select id="keyInggridient" class="select2bs4 form-control" name="keyInggridient" wire:model.defer="keyInggridient" required>
                                                 <option value="">Select your option</option>
                                                 @foreach ($this->listsForInggridient['inggridients'] as $value)
-                                                <option value="{{ $value['id_inggridient'] }}">
-                                                    {{ $value['name_inggridient'] }}</option>
+                                                    <option value="{{ $value['id_inggridient'] }}">
+                                                        {{ $value['name_inggridient'] }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -85,9 +85,9 @@
                                 <div class="col-lg-3">
                                     <input type="number" class="form-control @error('usage_amount') is-invalid @enderror" id="usage_amount" placeholder="Enter Usage Amount" wire:model.defer="usage_amount">
                                     @error('usage_amount')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                                 <div class="col-lg-6">
@@ -105,14 +105,14 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($productInggridient as $key => $value)
-                                    <tr>
-                                        <td>{{ $value['id_inggridient'] }}</td>
-                                        <td>{{ $value['name_inggridient'] }}</td>
-                                        <td>{{ $value['usage_amount'] }} {{ $value['unit_inggridient'] }}</td>
-                                        <td>
-                                            <a wire:click="delete_inggridient({{ $value['id_inggridient'] }})" class="btn btn-sm btn-danger fas fa-trash-alt"> Delete</a>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{ $value['id_inggridient'] }}</td>
+                                            <td>{{ $value['name_inggridient'] }}</td>
+                                            <td>{{ $value['usage_amount'] }} {{ $value['unit_inggridient'] }}</td>
+                                            <td>
+                                                <a wire:click="delete_inggridient({{ $value['id_inggridient'] }})" class="btn btn-sm btn-danger fas fa-trash-alt"> Delete</a>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -132,28 +132,27 @@
 </div>
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 @endpush
 
 @push('scripts')
-<script src="{{ asset('assets/plugins/select2/js/select2.full.min.js') }}"></script>
-<script>
-    $(document).ready(function() {
-        $('.select2bs4').select2({
-            theme: 'bootstrap4'
-            , allowClear: !$('.select2bs4').attr('required')
-        })
-        $('#unit_product').on('change', function(e) {
-            var data = $('#unit_product').select2("val");
-            @this.set('unit_product', data);
-        });
+    <script src="{{ asset('assets/plugins/select2/js/select2.full.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.select2bs4').select2({
+                theme: 'bootstrap4',
+                allowClear: !$('.select2bs4').attr('required')
+            })
+            $('#unit_product').on('change', function(e) {
+                var data = $('#unit_product').select2("val");
+                @this.set('unit_product', data);
+            });
 
-        $('#keyInggridient').on('change', function(e) {
-            var data = $('#keyInggridient').select2("val");
-            @this.set('keyInggridient', data);
+            $('#keyInggridient').on('change', function(e) {
+                var data = $('#keyInggridient').select2("val");
+                @this.set('keyInggridient', data);
+            });
         });
-    });
-
-</script>
+    </script>
 @endpush

@@ -38,7 +38,7 @@
                                     <td style="width: 125px"><strong>PERMISSIONS</strong></td>
                                     <td>
                                         @foreach ($this->role->permissions as $permission)
-                                        <span class="badge bg-primary">{{ Str::title(str_replace('_', ' ', $permission['name'])) }}</span>
+                                            <span class="badge bg-primary">{{ Str::title(str_replace('_', ' ', $permission['name'])) }}</span>
                                         @endforeach
                                     </td>
                                 </tr>
