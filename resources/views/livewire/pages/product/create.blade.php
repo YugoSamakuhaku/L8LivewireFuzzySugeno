@@ -26,7 +26,7 @@
                             <form wire:submit.prevent="submit">
                                 <div class="form-group">
                                     <label for="name_product">Name Product</label>
-                                    <input type="text" class="form-control @error('master_product.name_product') is-invalid @enderror" id="name_product" placeholder="Enter Name master_product" wire:model.defer="master_product.name_product">
+                                    <input type="text" class="form-control @error('master_product.name_product') is-invalid @enderror" id="name_product" placeholder="Enter Name Product" wire:model.defer="master_product.name_product">
                                     @error('master_product.name_product')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="price_product">Price Product</label>
-                                    <input type="number" class="form-control @error('master_product.price_product') is-invalid @enderror" id="price_product" placeholder="Enter Name master_product" wire:model.defer="master_product.price_product">
+                                    <input type="number" class="form-control @error('master_product.price_product') is-invalid @enderror" id="price_product" placeholder="Enter Price Product" wire:model.defer="master_product.price_product">
                                     @error('master_product.price_product')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -98,7 +98,7 @@
                                         <th>ID INGGRIDIENT</th>
                                         <th>NAME INGGRIDIENT</th>
                                         <th>USAGE AMOUNT</th>
-                                        <th>action</th>
+                                        <th>ACTION</th>
                                     </thead>
                                 </thead>
                                 <tbody>

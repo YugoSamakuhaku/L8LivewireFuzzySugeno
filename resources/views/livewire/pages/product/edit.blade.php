@@ -100,7 +100,7 @@
                                         <th>ID INGGRIDIENT</th>
                                         <th>NAME INGGRIDIENT</th>
                                         <th>USAGE AMOUNT</th>
-                                        <th>action</th>
+                                        <th>ACTION</th>
                                     </thead>
                                 </thead>
                                 <tbody>

@@ -15,8 +15,8 @@ class Create extends Component
 
     public $keyInggridient = '';
     public $usage_amount = '';
-    public array $productInggridient = [];
 
+    public array $productInggridient = [];
     public array $listsForInggridient = [];
 
     protected $listeners = ['add_inggridient', 'delete_inggridient'];
@@ -49,6 +49,7 @@ class Create extends Component
         ];
 
         $this->productInggridient[$data_inggridient['id_inggridient']] = $data_inggridient;
+        $this->usage_amount = '';
     }
 
     public function delete_inggridient($value): void

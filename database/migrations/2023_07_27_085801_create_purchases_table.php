@@ -14,7 +14,7 @@ class CreatePurchasesTable extends Migration
             $table->id('id_purchase');
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_supplier');
-            $table->bigInteger('qty_purchase_inggridients');
+            $table->bigInteger('qty_purchase_inggridient');
             $table->date('date_purchase');
             $table->timestamps();
 

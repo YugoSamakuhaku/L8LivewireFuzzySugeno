@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="price_inggridient">Price Inggridient</label>
-                                    <input type="number" class="form-control @error('master_inggridient.price_inggridient') is-invalid @enderror" id="price_inggridient" placeholder="Enter Name Inggridient" wire:model.defer="master_inggridient.price_inggridient">
+                                    <input type="number" class="form-control @error('master_inggridient.price_inggridient') is-invalid @enderror" id="price_inggridient" placeholder="Enter Price Inggridient" wire:model.defer="master_inggridient.price_inggridient">
                                     @error('master_inggridient.price_inggridient')
                                         <div class="invalid-feedback">
                                             {{ $message }}
