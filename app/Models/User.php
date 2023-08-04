@@ -58,7 +58,7 @@ class User extends Authenticatable
         }
     }
 
-    public function Purchases()
+    public function purchases()
     {
         return $this->hasMany(Purchase::class, 'id_user', 'id_user');
     }
