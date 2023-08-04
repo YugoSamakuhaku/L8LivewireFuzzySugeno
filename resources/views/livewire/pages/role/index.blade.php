@@ -19,10 +19,9 @@
             <section class="content">
                 <div class="card">
                     @can('roles_create')
-                        <div class="card-header">
-                            <a href="{{ route('role.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Create New
-                                Data</a>
-                        </div>
+                    <div class="card-header">
+                        <a href="{{ route('role.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Create New Data</a>
+                    </div>
                     @endcan
                     <!-- ./card-header -->
                     <div class="card-body pt-4">

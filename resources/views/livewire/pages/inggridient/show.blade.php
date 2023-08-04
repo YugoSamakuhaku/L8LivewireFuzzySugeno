@@ -19,8 +19,7 @@
             <section class="content">
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{ route('master_inggridient.index') }}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i>
-                            Back</a>
+                        <a href="{{ route('master_inggridient.index') }}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i>Back</a>
                     </div>
                     <!-- ./card-header -->
                     <div class="card-body pt-4">

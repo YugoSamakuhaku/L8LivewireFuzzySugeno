@@ -46,7 +46,7 @@
                     @endcan
                     @can('suppliers_access')
                         <li class="nav-item">
-                            <a href="{{ route('supplier.index') }}" class="nav-link {{ request()->routeIs('suppliers.*') ? 'active' : '' }}">
+                            <a href="{{ route('supplier.index') }}" class="nav-link {{ request()->routeIs('supplier.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-parachute-box"></i>
                                 <p>
                                     Suppliers

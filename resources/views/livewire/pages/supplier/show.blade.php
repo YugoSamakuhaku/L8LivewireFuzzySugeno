@@ -19,8 +19,7 @@
             <section class="content">
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{ route('supplier.index') }}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i>
-                            Back</a>
+                        <a href="{{ route('supplier.index') }}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back</a>
                     </div>
                     <!-- ./card-header -->
                     <div class="card-body pt-4">
@@ -31,19 +30,19 @@
                         <table class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <td style="width: 125px"><strong>NAME SUPPLIER</strong></td>
+                                    <td style="width: 200px"><strong>NAME SUPPLIER</strong></td>
                                     <td>{{ $this->supplier->name_supplier }}</td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 125px"><strong>PHONE SUPPLIER</strong></td>
+                                    <td style="width: 200px"><strong>PHONE SUPPLIER</strong></td>
                                     <td>{{ $this->supplier->phone_supplier }}</td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 125px"><strong>ADDRESS SUPPLIER</strong></td>
+                                    <td style="width: 200px"><strong>ADDRESS SUPPLIER</strong></td>
                                     <td>{{ $this->supplier->address_supplier }}</td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 125px"><strong>DESCRIPTION SUPPLIER</strong></td>
+                                    <td style="width: 200px"><strong>DESCRIPTION SUPPLIER</strong></td>
                                     <td>{{ $this->supplier->description_supplier }}</td>
                                 </tr>
                             </tbody>

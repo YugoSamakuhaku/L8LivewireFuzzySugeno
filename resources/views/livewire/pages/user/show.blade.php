@@ -19,8 +19,7 @@
             <section class="content">
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{ route('user.index') }}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i>
-                            Back</a>
+                        <a href="{{ route('user.index') }}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back</a>
                     </div>
                     <!-- ./card-header -->
                     <div class="card-body pt-4">
@@ -41,9 +40,9 @@
                                 <tr>
                                     <td style="width: 130px"><strong>ROLES</strong></td>
                                     <td>
-                                       @foreach ($this->user->getRoleNames() as $role)
-                                            <span class="badge bg-primary">{{ $role }}</span>
-                                       @endforeach
+                                        @foreach ($this->user->getRoleNames() as $role)
+                                        <span class="badge bg-primary">{{ $role }}</span>
+                                        @endforeach
                                     </td>
                                 </tr>
                                 <tr>

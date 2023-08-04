@@ -19,10 +19,9 @@
             <section class="content">
                 <div class="card">
                     @can('purchases_create')
-                        <div class="card-header">
-                            <a href="{{ route('purchase.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Create
-                                New Data</a>
-                        </div>
+                    <div class="card-header">
+                        <a href="{{ route('purchase.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Create New Data</a>
+                    </div>
                     @endcan
                     <!-- ./card-header -->
                     <div class="card-body pt-4">
@@ -42,9 +41,9 @@
     <!-- ./wrapper -->
 </div>
 @push('styles')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 @endpush
 
 @push('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 @endpush
