@@ -1,14 +1,16 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+declare(strict_types=1);
+
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateProductInggridientsTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
-        Schema::create('product_inggridients', function (Blueprint $table) {
+        Schema::create('product_inggridients', function (Blueprint $table): void {
             $table->id();
             $table->unsignedBigInteger('id_product');
             $table->unsignedBigInteger('id_inggridient');
@@ -19,7 +21,7 @@ class CreateProductInggridientsTable extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('product_inggridients');
     }

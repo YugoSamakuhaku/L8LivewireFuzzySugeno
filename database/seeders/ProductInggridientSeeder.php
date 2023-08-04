@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
-use App\Models\ProductInggridient;
 use Illuminate\Database\Seeder;
+use App\Models\ProductInggridient;
 
 class ProductInggridientSeeder extends Seeder
 {
@@ -12,7 +14,7 @@ class ProductInggridientSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $product_inggridients = [
             [

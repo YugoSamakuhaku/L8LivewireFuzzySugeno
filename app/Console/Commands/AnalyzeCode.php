@@ -6,21 +6,21 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class DBRestart extends Command
+class AnalyzeCode extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'db:restart';
+    protected $signature = 'code:analyze';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'do wipe, migration, seeding in 1 command';
+    protected $description = 'Perform static analysis and styling checks.';
 
     /**
      * Create a new command instance.
@@ -39,8 +39,14 @@ class DBRestart extends Command
      */
     public function handle()
     {
-        $this->call('db:wipe');
-        $this->call('migrate');
-        $this->call('db:seed');
+        // Run Laravel Duster
+        $this->info('Running Laravel Duster...');
+        exec('/vendor/bin/duster lint');
+
+        // Run PhpStan
+        $this->info('Running PhpStan...');
+        exec('/vendor/bin/phpstan analyse --level max');
+
+        $this->info('Static analysis and styling checks completed.');
     }
 }

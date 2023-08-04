@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
-use App\Http\Livewire\Pages\Dashboard\Index;
 use Illuminate\Support\Facades\App;
+use App\Http\Livewire\Pages\Dashboard\Index;
 
 class DashboardController extends Controller
 {

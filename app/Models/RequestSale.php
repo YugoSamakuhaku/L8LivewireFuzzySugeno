@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class RequestSale extends Model
 {
@@ -20,7 +22,7 @@ class RequestSale extends Model
         'date_sale',
     ];
 
-    public function users()
+    public function users(): void
     {
         $this->belongsTo(User::class);
     }

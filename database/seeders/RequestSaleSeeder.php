@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
-use App\Models\RequestSale;
 use Carbon\Carbon;
+use App\Models\RequestSale;
 use Illuminate\Database\Seeder;
 
 class RequestSaleSeeder extends Seeder
@@ -13,7 +15,7 @@ class RequestSaleSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $request_sales = [
             [

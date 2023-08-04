@@ -1,25 +1,27 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\DataTable;
 
-use App\Models\MasterInggridient;
 use Exception;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
+use App\Models\MasterInggridient;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Database\Eloquent\Builder;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
-use PowerComponents\LivewirePowerGrid\Exportable;
 use PowerComponents\LivewirePowerGrid\Footer;
 use PowerComponents\LivewirePowerGrid\Header;
 use PowerComponents\LivewirePowerGrid\PowerGrid;
-use PowerComponents\LivewirePowerGrid\PowerGridComponent;
-use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
-use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 use PowerComponents\LivewirePowerGridRules\Rule;
+use PowerComponents\LivewirePowerGrid\Exportable;
 use PowerComponents\LivewirePowerGridRules\RuleActions;
+use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
+use PowerComponents\LivewirePowerGrid\PowerGridComponent;
+use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 
 final class MasterInggridientTable extends PowerGridComponent
 {
@@ -105,9 +107,7 @@ final class MasterInggridientTable extends PowerGridComponent
             ->addColumn('name_inggridient')
 
             /** Example of custom column using a closure **/
-            ->addColumn('name_inggridient_lower', function (MasterInggridient $model) {
-                return strtolower(e($model->name_inggridient));
-            })
+            ->addColumn('name_inggridient_lower', fn (MasterInggridient $model) => mb_strtolower(e($model->name_inggridient)))
 
             ->addColumn('qty_inggridient')
             ->addColumn('unit_inggridient')

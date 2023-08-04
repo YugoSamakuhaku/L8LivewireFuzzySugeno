@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Pages\Product;
 
-use App\Models\MasterInggridient;
-use App\Models\MasterProduct;
 use Livewire\Component;
+use App\Models\MasterProduct;
+use App\Models\MasterInggridient;
 
 class Edit extends Component
 {
@@ -24,7 +26,7 @@ class Edit extends Component
     {
         $get_data = MasterProduct::with('master_inggridients')->find($master_product)->first();
 
-        if (! empty($get_data->master_inggridients) && count($get_data->master_inggridients) > 0) {
+        if ( ! empty($get_data->master_inggridients) && count($get_data->master_inggridients) > 0) {
             foreach ($get_data->master_inggridients as $key => $value) {
                 $prepare_inggridient[$value->id_inggridient] = [
                     'id_inggridient' => $value->id_inggridient,
@@ -48,7 +50,7 @@ class Edit extends Component
         return view('livewire.pages.product.edit')->extends('layouts.app')->section('wrapper');
     }
 
-    public function add_inggridient()
+    public function add_inggridient(): void
     {
         $this->validate([
             'keyInggridient' => 'required',
@@ -69,7 +71,7 @@ class Edit extends Component
         // dd($this->productInggridient);
     }
 
-    public function delete_inggridient($value)
+    public function delete_inggridient($value): void
     {
         unset($this->productInggridient[$value]);
     }

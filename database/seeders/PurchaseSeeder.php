@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
-use App\Models\Purchase;
 use Carbon\Carbon;
+use App\Models\Purchase;
 use Illuminate\Database\Seeder;
 
 class PurchaseSeeder extends Seeder
@@ -13,7 +15,7 @@ class PurchaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $purchases = [
             [

@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Components;
 
-use App\Traits\LogoutTrait;
 use Livewire\Component;
+use App\Traits\LogoutTrait;
 
 class Navbar extends Component
 {

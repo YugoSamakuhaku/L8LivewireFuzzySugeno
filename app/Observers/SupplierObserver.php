@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Observers;
 
 use App\Models\Supplier;
@@ -14,7 +16,7 @@ class SupplierObserver
      *
      * @return void
      */
-    public function created(Supplier $supplier)
+    public function created(Supplier $supplier): void
     {
         $this->flash('success', 'Successfully Added Data', [
             'position' => 'top-end',
@@ -30,7 +32,7 @@ class SupplierObserver
      *
      * @return void
      */
-    public function updated(Supplier $supplier)
+    public function updated(Supplier $supplier): void
     {
         $this->flash('success', 'successfully Changed Data', [
             'position' => 'top-end',
@@ -46,7 +48,7 @@ class SupplierObserver
      *
      * @return void
      */
-    public function deleted(Supplier $supplier)
+    public function deleted(Supplier $supplier): void
     {
         $this->flash('success', 'Successfully Deleting Data', [
             'position' => 'top-end',
@@ -62,9 +64,9 @@ class SupplierObserver
      *
      * @return void
      */
-    public function restored(Supplier $supplier)
+    public function restored(Supplier $supplier): void
     {
-        //
+
     }
 
     /**
@@ -72,8 +74,8 @@ class SupplierObserver
      *
      * @return void
      */
-    public function forceDeleted(Supplier $supplier)
+    public function forceDeleted(Supplier $supplier): void
     {
-        //
+
     }
 }

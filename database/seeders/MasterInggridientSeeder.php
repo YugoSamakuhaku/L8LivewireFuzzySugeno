@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
-use App\Models\MasterInggridient;
 use Illuminate\Database\Seeder;
+use App\Models\MasterInggridient;
 
 class MasterInggridientSeeder extends Seeder
 {
@@ -12,7 +14,7 @@ class MasterInggridientSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $master_inggridients = [
             [

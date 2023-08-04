@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Pages\Product;
 
-use App\Models\MasterInggridient;
-use App\Models\MasterProduct;
 use Livewire\Component;
+use App\Models\MasterProduct;
+use App\Models\MasterInggridient;
 
 class Create extends Component
 {
@@ -30,7 +32,7 @@ class Create extends Component
         return view('livewire.pages.product.create')->extends('layouts.app')->section('wrapper');
     }
 
-    public function add_inggridient()
+    public function add_inggridient(): void
     {
         $this->validate([
             'keyInggridient' => 'required',
@@ -49,7 +51,7 @@ class Create extends Component
         $this->productInggridient[$data_inggridient['id_inggridient']] = $data_inggridient;
     }
 
-    public function delete_inggridient($value)
+    public function delete_inggridient($value): void
     {
         unset($this->productInggridient[$value]);
     }

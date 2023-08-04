@@ -21,7 +21,7 @@ trait AuthorizesRoleOrPermission
             ? $roleOrPermission
             : explode('|', $roleOrPermission);
 
-        if (! auth()->guard($guard)->user()->hasAnyRole($rolesOrPermissions) && ! auth()->guard($guard)->user()->hasAnyPermission($rolesOrPermissions)) {
+        if ( ! auth()->guard($guard)->user()->hasAnyRole($rolesOrPermissions) && ! auth()->guard($guard)->user()->hasAnyPermission($rolesOrPermissions)) {
             throw UnauthorizedException::forRolesOrPermissions($rolesOrPermissions);
         }
     }

@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Pages\Purchase;
 
-use App\Models\Purchase;
 use Livewire\Component;
+use App\Models\Purchase;
 
 class Show extends Component
 {

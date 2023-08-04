@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Observers;
 
 use App\Models\User;
@@ -14,7 +16,7 @@ class UserObserver
      *
      * @return void
      */
-    public function created(User $user)
+    public function created(User $user): void
     {
         $this->flash('success', 'Successfully Added Data', [
             'position' => 'top-end',
@@ -30,7 +32,7 @@ class UserObserver
      *
      * @return void
      */
-    public function updated(User $user)
+    public function updated(User $user): void
     {
         $this->flash('success', 'successfully Changed Data', [
             'position' => 'top-end',
@@ -46,7 +48,7 @@ class UserObserver
      *
      * @return void
      */
-    public function deleted(User $user)
+    public function deleted(User $user): void
     {
         $this->flash('success', 'Successfully Deleting Data', [
             'position' => 'top-end',
@@ -62,9 +64,9 @@ class UserObserver
      *
      * @return void
      */
-    public function restored(User $user)
+    public function restored(User $user): void
     {
-        //
+
     }
 
     /**
@@ -72,8 +74,8 @@ class UserObserver
      *
      * @return void
      */
-    public function forceDeleted(User $user)
+    public function forceDeleted(User $user): void
     {
-        //
+
     }
 }

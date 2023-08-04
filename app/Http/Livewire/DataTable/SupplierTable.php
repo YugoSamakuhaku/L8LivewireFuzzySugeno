@@ -1,25 +1,27 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\DataTable;
 
-use App\Models\Supplier;
 use Exception;
-use Illuminate\Database\Eloquent\Builder;
+use App\Models\Supplier;
+use Illuminate\Support\Str;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Builder;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
-use PowerComponents\LivewirePowerGrid\Exportable;
 use PowerComponents\LivewirePowerGrid\Footer;
 use PowerComponents\LivewirePowerGrid\Header;
 use PowerComponents\LivewirePowerGrid\PowerGrid;
-use PowerComponents\LivewirePowerGrid\PowerGridComponent;
-use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
-use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 use PowerComponents\LivewirePowerGridRules\Rule;
+use PowerComponents\LivewirePowerGrid\Exportable;
 use PowerComponents\LivewirePowerGridRules\RuleActions;
+use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
+use PowerComponents\LivewirePowerGrid\PowerGridComponent;
+use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 
 final class SupplierTable extends PowerGridComponent
 {
@@ -105,9 +107,7 @@ final class SupplierTable extends PowerGridComponent
             ->addColumn('name_supplier')
 
             /** Example of custom column using a closure **/
-            ->addColumn('name_supplier_lower', function (Supplier $model) {
-                return strtolower(e($model->name_supplier));
-            })
+            ->addColumn('name_supplier_lower', fn (Supplier $model) => mb_strtolower(e($model->name_supplier)))
 
             ->addColumn('phone_supplier')
             ->addColumn('address_supplier')

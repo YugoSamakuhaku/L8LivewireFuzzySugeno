@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use App\Models\MasterProduct;
@@ -12,7 +14,7 @@ class MasterProductSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $master_products = [
             [

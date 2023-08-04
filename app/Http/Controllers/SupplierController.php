@@ -1,15 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
-use App\Http\Livewire\Pages\Supplier\Create;
-use App\Http\Livewire\Pages\Supplier\Edit;
-use App\Http\Livewire\Pages\Supplier\Index;
-use App\Http\Livewire\Pages\Supplier\Show;
 use App\Models\Supplier;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Gate;
+use App\Http\Livewire\Pages\Supplier\Edit;
+use App\Http\Livewire\Pages\Supplier\Show;
+use App\Http\Livewire\Pages\Supplier\Index;
+use App\Http\Livewire\Pages\Supplier\Create;
 
 class SupplierController extends Controller
 {

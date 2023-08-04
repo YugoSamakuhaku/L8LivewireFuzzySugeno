@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Observers;
 
-use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Spatie\Permission\Models\Role;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class RoleObserver
 {
@@ -15,7 +17,7 @@ class RoleObserver
      * @param  \App\Models\Role  $role
      * @return void
      */
-    public function created(Role $role)
+    public function created(Role $role): void
     {
         $this->flash('success', 'Successfully Added Data', [
             'position' => 'top-end',
@@ -32,7 +34,7 @@ class RoleObserver
      * @param  \App\Models\Role  $role
      * @return void
      */
-    public function updated(Role $role)
+    public function updated(Role $role): void
     {
         $this->flash('success', 'successfully Changed Data', [
             'position' => 'top-end',
@@ -49,7 +51,7 @@ class RoleObserver
      * @param  \App\Models\Role  $role
      * @return void
      */
-    public function deleted(Role $role)
+    public function deleted(Role $role): void
     {
         $this->flash('success', 'Successfully Deleting Data', [
             'position' => 'top-end',
@@ -66,9 +68,9 @@ class RoleObserver
      * @param  \App\Models\Role  $role
      * @return void
      */
-    public function restored(Role $role)
+    public function restored(Role $role): void
     {
-        //
+
     }
 
     /**
@@ -77,8 +79,8 @@ class RoleObserver
      * @param  \App\Models\Role  $role
      * @return void
      */
-    public function forceDeleted(Role $role)
+    public function forceDeleted(Role $role): void
     {
-        //
+
     }
 }

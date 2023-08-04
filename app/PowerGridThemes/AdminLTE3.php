@@ -1,23 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\PowerGridThemes;
 
-use PowerComponents\LivewirePowerGrid\Themes\Components\Actions;
-use PowerComponents\LivewirePowerGrid\Themes\Components\Checkbox;
-use PowerComponents\LivewirePowerGrid\Themes\Components\ClickToCopy;
-use PowerComponents\LivewirePowerGrid\Themes\Components\Cols;
-use PowerComponents\LivewirePowerGrid\Themes\Components\Editable;
-use PowerComponents\LivewirePowerGrid\Themes\Components\FilterBoolean;
-use PowerComponents\LivewirePowerGrid\Themes\Components\FilterDatePicker;
-use PowerComponents\LivewirePowerGrid\Themes\Components\FilterInputText;
-use PowerComponents\LivewirePowerGrid\Themes\Components\FilterMultiSelect;
-use PowerComponents\LivewirePowerGrid\Themes\Components\FilterNumber;
-use PowerComponents\LivewirePowerGrid\Themes\Components\FilterSelect;
-use PowerComponents\LivewirePowerGrid\Themes\Components\Footer;
-use PowerComponents\LivewirePowerGrid\Themes\Components\Table;
-use PowerComponents\LivewirePowerGrid\Themes\Components\Toggleable;
 use PowerComponents\LivewirePowerGrid\Themes\Theme;
 use PowerComponents\LivewirePowerGrid\Themes\ThemeBase;
+use PowerComponents\LivewirePowerGrid\Themes\Components\Cols;
+use PowerComponents\LivewirePowerGrid\Themes\Components\Table;
+use PowerComponents\LivewirePowerGrid\Themes\Components\Footer;
+use PowerComponents\LivewirePowerGrid\Themes\Components\Actions;
+use PowerComponents\LivewirePowerGrid\Themes\Components\Checkbox;
+use PowerComponents\LivewirePowerGrid\Themes\Components\Editable;
+use PowerComponents\LivewirePowerGrid\Themes\Components\Toggleable;
+use PowerComponents\LivewirePowerGrid\Themes\Components\ClickToCopy;
+use PowerComponents\LivewirePowerGrid\Themes\Components\FilterNumber;
+use PowerComponents\LivewirePowerGrid\Themes\Components\FilterSelect;
+use PowerComponents\LivewirePowerGrid\Themes\Components\FilterBoolean;
+use PowerComponents\LivewirePowerGrid\Themes\Components\FilterInputText;
+use PowerComponents\LivewirePowerGrid\Themes\Components\FilterDatePicker;
+use PowerComponents\LivewirePowerGrid\Themes\Components\FilterMultiSelect;
 
 class AdminLTE3 extends ThemeBase
 {

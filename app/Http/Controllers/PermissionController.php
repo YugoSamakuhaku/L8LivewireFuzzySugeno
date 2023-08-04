@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
-use App\Http\Livewire\Pages\Permission\Index;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Gate;
+use App\Http\Livewire\Pages\Permission\Index;
 
 class PermissionController extends Controller
 {

@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Pages\Supplier;
 
-use App\Models\Supplier;
 use Livewire\Component;
+use App\Models\Supplier;
 
 class Edit extends Component
 {

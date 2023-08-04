@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
-use App\Models\DetailRequestSale;
 use Illuminate\Http\Request;
+use App\Models\DetailRequestSale;
 
 class DetailRequestSaleController extends Controller
 {
@@ -14,7 +16,7 @@ class DetailRequestSaleController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -24,7 +26,7 @@ class DetailRequestSaleController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,7 +36,7 @@ class DetailRequestSaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -44,7 +46,7 @@ class DetailRequestSaleController extends Controller
      */
     public function show(DetailRequestSale $detailRequestSale)
     {
-        //
+
     }
 
     /**
@@ -54,7 +56,7 @@ class DetailRequestSaleController extends Controller
      */
     public function edit(DetailRequestSale $detailRequestSale)
     {
-        //
+
     }
 
     /**
@@ -64,7 +66,7 @@ class DetailRequestSaleController extends Controller
      */
     public function update(Request $request, DetailRequestSale $detailRequestSale)
     {
-        //
+
     }
 
     /**
@@ -74,6 +76,6 @@ class DetailRequestSaleController extends Controller
      */
     public function destroy(DetailRequestSale $detailRequestSale)
     {
-        //
+
     }
 }

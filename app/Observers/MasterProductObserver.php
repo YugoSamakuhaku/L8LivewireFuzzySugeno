@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Observers;
 
 use App\Models\MasterProduct;
@@ -14,7 +16,7 @@ class MasterProductObserver
      *
      * @return void
      */
-    public function created(MasterProduct $masterProduct)
+    public function created(MasterProduct $masterProduct): void
     {
         $this->flash('success', 'Successfully Added Data', [
             'position' => 'top-end',
@@ -30,7 +32,7 @@ class MasterProductObserver
      *
      * @return void
      */
-    public function updated(MasterProduct $masterProduct)
+    public function updated(MasterProduct $masterProduct): void
     {
         $this->flash('success', 'successfully Changed Data', [
             'position' => 'top-end',
@@ -46,7 +48,7 @@ class MasterProductObserver
      *
      * @return void
      */
-    public function deleted(MasterProduct $masterProduct)
+    public function deleted(MasterProduct $masterProduct): void
     {
         $this->flash('success', 'Successfully Deleting Data', [
             'position' => 'top-end',
@@ -62,9 +64,9 @@ class MasterProductObserver
      *
      * @return void
      */
-    public function restored(MasterProduct $masterProduct)
+    public function restored(MasterProduct $masterProduct): void
     {
-        //
+
     }
 
     /**
@@ -72,8 +74,8 @@ class MasterProductObserver
      *
      * @return void
      */
-    public function forceDeleted(MasterProduct $masterProduct)
+    public function forceDeleted(MasterProduct $masterProduct): void
     {
-        //
+
     }
 }

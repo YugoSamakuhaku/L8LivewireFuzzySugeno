@@ -1,22 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\DataTable;
 
 use App\Models\Purchase;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
-use PowerComponents\LivewirePowerGrid\Exportable;
 use PowerComponents\LivewirePowerGrid\Footer;
 use PowerComponents\LivewirePowerGrid\Header;
 use PowerComponents\LivewirePowerGrid\PowerGrid;
-use PowerComponents\LivewirePowerGrid\PowerGridComponent;
-use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
-use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 use PowerComponents\LivewirePowerGridRules\Rule;
+use PowerComponents\LivewirePowerGrid\Exportable;
 use PowerComponents\LivewirePowerGridRules\RuleActions;
+use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
+use PowerComponents\LivewirePowerGrid\PowerGridComponent;
+use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 
 final class PurchaseTable extends PowerGridComponent
 {
@@ -99,15 +101,9 @@ final class PurchaseTable extends PowerGridComponent
     {
         return PowerGrid::eloquent()
             ->addColumn('id_purchase_format', fn (Purchase $model) => 'PU-' . '' . str_pad('' . $model->id_purchase, 5, '0', STR_PAD_LEFT))
-            ->addColumn('name_supplier', function (Purchase $model) {
-                return $model->suppliers->name_supplier;
-            })
-            ->addColumn('name_user', function (Purchase $model) {
-                return $model->users->fullname;
-            })
-            ->addColumn('total_price_inggridient', function (Purchase $model) {
-                return $model->master_inggridients->sum('pivot.total_price_inggridient');
-            })
+            ->addColumn('name_supplier', fn (Purchase $model) => $model->suppliers->name_supplier)
+            ->addColumn('name_user', fn (Purchase $model) => $model->users->fullname)
+            ->addColumn('total_price_inggridient', fn (Purchase $model) => $model->master_inggridients->sum('pivot.total_price_inggridient'))
             ->addColumn('date_purchase_formatted', fn (Purchase $model) => Carbon::parse($model->date_purchase)->format('l, d F Y'))
             ->addColumn('created_at_formatted', fn (Purchase $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
             ->addColumn('updated_at_formatted', fn (Purchase $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));

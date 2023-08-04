@@ -1,22 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\DataTable;
 
 use App\Models\RequestSale;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
-use PowerComponents\LivewirePowerGrid\Exportable;
 use PowerComponents\LivewirePowerGrid\Footer;
 use PowerComponents\LivewirePowerGrid\Header;
 use PowerComponents\LivewirePowerGrid\PowerGrid;
-use PowerComponents\LivewirePowerGrid\PowerGridComponent;
-use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
-use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 use PowerComponents\LivewirePowerGridRules\Rule;
+use PowerComponents\LivewirePowerGrid\Exportable;
 use PowerComponents\LivewirePowerGridRules\RuleActions;
+use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
+use PowerComponents\LivewirePowerGrid\PowerGridComponent;
+use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 
 final class RequestSaleTable extends PowerGridComponent
 {
@@ -159,10 +161,10 @@ final class RequestSaleTable extends PowerGridComponent
     */
 
     /**
-    * PowerGrid RequestSale Action Buttons.
-    *
-    * @return array<int, Button>
-    */
+     * PowerGrid RequestSale Action Buttons.
+     *
+     * @return array<int, Button>
+     */
 
     /*
     public function actions(): array
@@ -189,10 +191,10 @@ final class RequestSaleTable extends PowerGridComponent
     */
 
     /**
-    * PowerGrid RequestSale Action Rules.
-    *
-    * @return array<int, RuleActions>
-    */
+     * PowerGrid RequestSale Action Rules.
+     *
+     * @return array<int, RuleActions>
+     */
 
     /*
     public function actionRules(): array

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Observers;
 
 use App\Models\MasterInggridient;
@@ -14,7 +16,7 @@ class MasterInggridientObserver
      *
      * @return void
      */
-    public function created(MasterInggridient $masterInggridient)
+    public function created(MasterInggridient $masterInggridient): void
     {
         $this->flash('success', 'Successfully Added Data', [
             'position' => 'top-end',
@@ -30,7 +32,7 @@ class MasterInggridientObserver
      *
      * @return void
      */
-    public function updated(MasterInggridient $masterInggridient)
+    public function updated(MasterInggridient $masterInggridient): void
     {
         $this->flash('success', 'successfully Changed Data', [
             'position' => 'top-end',
@@ -46,7 +48,7 @@ class MasterInggridientObserver
      *
      * @return void
      */
-    public function deleted(MasterInggridient $masterInggridient)
+    public function deleted(MasterInggridient $masterInggridient): void
     {
         $this->flash('success', 'Successfully Deleting Data', [
             'position' => 'top-end',
@@ -62,9 +64,9 @@ class MasterInggridientObserver
      *
      * @return void
      */
-    public function restored(MasterInggridient $masterInggridient)
+    public function restored(MasterInggridient $masterInggridient): void
     {
-        //
+
     }
 
     /**
@@ -72,8 +74,8 @@ class MasterInggridientObserver
      *
      * @return void
      */
-    public function forceDeleted(MasterInggridient $masterInggridient)
+    public function forceDeleted(MasterInggridient $masterInggridient): void
     {
-        //
+
     }
 }

@@ -1,15 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
-use App\Http\Livewire\Pages\Product\Create;
-use App\Http\Livewire\Pages\Product\Edit;
-use App\Http\Livewire\Pages\Product\Index;
-use App\Http\Livewire\Pages\Product\Show;
 use App\Models\MasterProduct;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Gate;
+use App\Http\Livewire\Pages\Product\Edit;
+use App\Http\Livewire\Pages\Product\Show;
+use App\Http\Livewire\Pages\Product\Index;
+use App\Http\Livewire\Pages\Product\Create;
 
 class MasterProductController extends Controller
 {

@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
-use App\Http\Livewire\Pages\Purchase\Create;
-use App\Http\Livewire\Pages\Purchase\Index;
-use App\Http\Livewire\Pages\Purchase\Show;
 use App\Models\Purchase;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Gate;
+use App\Http\Livewire\Pages\Purchase\Show;
+use App\Http\Livewire\Pages\Purchase\Index;
+use App\Http\Livewire\Pages\Purchase\Create;
 
 class PurchaseController extends Controller
 {

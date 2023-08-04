@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
-use App\Models\DetailPurchase;
 use Carbon\Carbon;
+use App\Models\DetailPurchase;
 use Illuminate\Database\Seeder;
 
 class DetailPurchaseSeeder extends Seeder
@@ -13,7 +15,7 @@ class DetailPurchaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $detail_purchases = [
             [

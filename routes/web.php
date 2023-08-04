@@ -1,16 +1,18 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\MasterInggridientController;
-use App\Http\Controllers\MasterProductController;
-use App\Http\Controllers\PermissionController;
-use App\Http\Controllers\PurchaseController;
-use App\Http\Controllers\RequestSaleController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\UserController;
+declare(strict_types=1);
+
 use App\Http\Livewire\Auth\Login;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RequestSaleController;
+use App\Http\Controllers\MasterProductController;
+use App\Http\Controllers\MasterInggridientController;
 
 /*
 |--------------------------------------------------------------------------

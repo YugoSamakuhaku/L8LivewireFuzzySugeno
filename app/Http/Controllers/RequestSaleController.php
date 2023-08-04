@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
-use App\Http\Livewire\Pages\Sale\Create;
-use App\Http\Livewire\Pages\Sale\Index;
-use App\Http\Livewire\Pages\Sale\Show;
 use App\Models\RequestSale;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Gate;
+use App\Http\Livewire\Pages\Sale\Show;
+use App\Http\Livewire\Pages\Sale\Index;
+use App\Http\Livewire\Pages\Sale\Create;
 
 class RequestSaleController extends Controller
 {

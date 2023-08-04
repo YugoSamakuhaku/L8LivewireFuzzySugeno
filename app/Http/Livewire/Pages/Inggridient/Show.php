@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Pages\Inggridient;
 
-use App\Models\MasterInggridient;
 use Livewire\Component;
+use App\Models\MasterInggridient;
 
 class Show extends Component
 {

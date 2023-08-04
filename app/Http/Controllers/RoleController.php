@@ -1,15 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
-use App\Http\Livewire\Pages\Role\Create;
-use App\Http\Livewire\Pages\Role\Edit;
-use App\Http\Livewire\Pages\Role\Index;
-use App\Http\Livewire\Pages\Role\Show;
 use Illuminate\Http\Response;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Gate;
-use Spatie\Permission\Models\Role;
+use App\Http\Livewire\Pages\Role\Edit;
+use App\Http\Livewire\Pages\Role\Show;
+use App\Http\Livewire\Pages\Role\Index;
+use App\Http\Livewire\Pages\Role\Create;
 
 class RoleController extends Controller
 {
