@@ -104,31 +104,33 @@
                 </nav>
             @endif
 
-            @if ($recordCount === 'full')
-                <small class="text-muted d-block mb-2 my-md-2 me-1">
-                    {{ trans('livewire-powergrid::datatable.pagination.showing') }}
-                    <span class="font-semibold">{{ $paginator->firstItem() }}</span>
-                    {{ trans('livewire-powergrid::datatable.pagination.to') }}
-                    <span class="font-semibold">{{ $paginator->lastItem() }}</span>
-                    {{ trans('livewire-powergrid::datatable.pagination.of') }}
-                    <span class="font-semibold">{{ $paginator->total() }}</span>
-                    {{ trans('livewire-powergrid::datatable.pagination.results') }}
-                </small>
-            @elseif($recordCount === 'short')
-                <small class="text-muted d-block mb-2 my-md-2 me-1">
-                    <span class="font-semibold"> {{ $paginator->firstItem() }}</span>
-                    -
-                    <span class="font-semibold"> {{ $paginator->lastItem() }}</span>
-                    |
-                    <span class="font-semibold"> {{ $paginator->total() }}</span>
-                </small>
-            @elseif($recordCount === 'min')
-                <small class="text-muted d-block mb-2 my-md-2 me-1">
-                    <span class="font-semibold"> {{ $paginator->firstItem() }}</span>
-                    -
-                    <span class="font-semibold"> {{ $paginator->lastItem() }}</span>
-                </small>
-            @endif
+            <div class="d-flex justify-content-end">
+                @if ($recordCount === 'full')
+                    <small class="text-muted d-block mb-2 my-md-2 me-1">
+                        {{ trans('livewire-powergrid::datatable.pagination.showing') }}
+                        <span class="font-semibold">{{ $paginator->firstItem() }}</span>
+                        {{ trans('livewire-powergrid::datatable.pagination.to') }}
+                        <span class="font-semibold">{{ $paginator->lastItem() }}</span>
+                        {{ trans('livewire-powergrid::datatable.pagination.of') }}
+                        <span class="font-semibold">{{ $paginator->total() }}</span>
+                        {{ trans('livewire-powergrid::datatable.pagination.results') }}
+                    </small>
+                @elseif($recordCount === 'short')
+                    <small class="text-muted d-block mb-2 my-md-2 me-1">
+                        <span class="font-semibold"> {{ $paginator->firstItem() }}</span>
+                        -
+                        <span class="font-semibold"> {{ $paginator->lastItem() }}</span>
+                        |
+                        <span class="font-semibold"> {{ $paginator->total() }}</span>
+                    </small>
+                @elseif($recordCount === 'min')
+                    <small class="text-muted d-block mb-2 my-md-2 me-1">
+                        <span class="font-semibold"> {{ $paginator->firstItem() }}</span>
+                        -
+                        <span class="font-semibold"> {{ $paginator->lastItem() }}</span>
+                    </small>
+                @endif
+            </div>
         </label>
     </div>
 

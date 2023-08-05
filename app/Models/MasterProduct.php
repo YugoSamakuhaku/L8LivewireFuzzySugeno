@@ -29,6 +29,6 @@ class MasterProduct extends Model
 
     public function request_sales()
     {
-        return $this->belongsToMany(RequestSale::class, 'detail_request_sales', 'id_product', 'id_sale')->withPivot('qty');
+        return $this->belongsToMany(RequestSale::class, 'detail_request_sales', 'id_product', 'id_sale')->withPivot('qty', 'total_price_product');
     }
 }

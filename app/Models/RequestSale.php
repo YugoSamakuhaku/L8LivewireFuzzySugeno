@@ -22,13 +22,13 @@ class RequestSale extends Model
         'date_sale',
     ];
 
-    public function users(): void
+    public function users()
     {
-        $this->belongsTo(User::class, 'id_user', 'id_user');
+        return $this->belongsTo(User::class, 'id_user', 'id_user');
     }
 
     public function master_products()
     {
-        return $this->belongsToMany(MasterProduct::class, 'detail_request_sales', 'id_sale', 'id_product')->withPivot('qty');
+        return $this->belongsToMany(MasterProduct::class, 'detail_request_sales', 'id_sale', 'id_product')->withPivot('qty', 'total_price_product');
     }
 }

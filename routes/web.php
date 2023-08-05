@@ -65,5 +65,5 @@ Route::group(['middleware' => 'auth'], function (): void {
 
     Route::get('sale', [RequestSaleController::class, 'index'])->name('sale.index');
     Route::get('sale/create', [RequestSaleController::class, 'create'])->name('sale.create');
-    Route::get('sale/show/{sale}', [RequestSaleController::class, 'show'])->name('sale.show');
+    Route::get('sale/show/{request_sale}', [RequestSaleController::class, 'show'])->name('sale.show');
 });

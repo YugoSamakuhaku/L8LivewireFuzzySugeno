@@ -26,7 +26,7 @@
                     <div class="card-body pt-4">
 
                         <blockquote class="quote-secondary">
-                            <h4>ID PRODUCT:
+                            <h4>ID PURCHASE:
                                 {{ 'PU-' . '' . str_pad('' . $this->purchase->id_purchase, 5, '0', STR_PAD_LEFT) }}
                             </h4>
                         </blockquote>
