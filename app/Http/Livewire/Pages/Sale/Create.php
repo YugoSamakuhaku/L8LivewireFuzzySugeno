@@ -43,7 +43,7 @@ class Create extends Component
     public function submit(): void
     {
         $this->validate([
-            'qty_sale' => 'required',
+            'qty_sale' => 'required|numeric|min:1',
             'date_sale' => 'required',
         ]);
 
