@@ -75,7 +75,7 @@
                                             <select id="keyProduct" class="select2bs4 form-control" name="keyProduct" wire:model.defer="keyProduct" required>
                                                 <option value="">Select your option</option>
                                                 @foreach ($this->listsForProduct['master_products'] as $value)
-                                                    <option value="{{ $value['id_product'] }}">{{ $value['name_product'] }}</option>
+                                                    <option value="{{ $value['id_product'] }}">{{ $value['name_product'] }} ({{ $value['unit_product'] }})</option>
                                                 @endforeach
                                             </select>
                                         </div>
