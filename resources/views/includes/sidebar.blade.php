@@ -1,4 +1,4 @@
-<div>
+<div wire:ignore>
     <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
         <!-- Brand Logo -->
         <a href="#" class="brand-link logo-switch d-flex justify-content-center">

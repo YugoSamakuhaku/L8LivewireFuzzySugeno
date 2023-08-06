@@ -44,7 +44,7 @@ class Create extends Component
     {
         $this->validate([
             'keySupplier' => 'required',
-            'qty_purchase_inggridient' => 'required',
+            'qty_purchase_inggridient' => 'required|numeric|min:1',
             'date_purchase' => 'required',
         ]);
 
@@ -58,6 +58,10 @@ class Create extends Component
         $sync_data = [];
 
         foreach ($this->purchase_inggridient as $key => $value) {
+            MasterInggridient::unsetEventDispatcher();
+
+            $find_master_inggridient = MasterInggridient::find($value['id_inggridient'])->increment('qty_inggridient', $value['qty']);
+
             $sync_data[] = [
                 'id_inggridient' => $value['id_inggridient'],
                 'date_expired' => Carbon::parse($value['date_expired'])->format('Y-m-d'),
@@ -73,7 +77,7 @@ class Create extends Component
     {
         $this->validate([
             'keyInggridient' => 'required',
-            'qty' => 'required',
+            'qty' => 'required|numeric|min:1000',
             'date_expired' => 'required',
         ]);
 

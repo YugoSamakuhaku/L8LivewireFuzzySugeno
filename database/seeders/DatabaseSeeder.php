@@ -24,12 +24,12 @@ class DatabaseSeeder extends Seeder
         $this->call(MasterInggridientSeeder::class);
         $this->call(ProductInggridientSeeder::class);
 
-        $this->call(RequestSaleSeeder::class);
-        $this->call(DetailRequestSaleSeeder::class);
-
         $this->call(SupplierSeeder::class);
 
         $this->call(PurchaseSeeder::class);
         $this->call(DetailPurchaseSeeder::class);
+
+        $this->call(RequestSaleSeeder::class);
+        $this->call(DetailRequestSaleSeeder::class);
     }
 }

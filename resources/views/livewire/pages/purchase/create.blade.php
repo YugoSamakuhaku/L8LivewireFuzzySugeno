@@ -87,8 +87,7 @@
                                             <select id="keyInggridient" class="select2bs4 form-control" name="keyInggridient" wire:model.defer="keyInggridient" required>
                                                 <option value="">Select your option</option>
                                                 @foreach ($this->listsForInggridient['inggridients'] as $value)
-                                                    <option value="{{ $value['id_inggridient'] }}">
-                                                        {{ $value['name_inggridient'] }}</option>
+                                                    <option value="{{ $value['id_inggridient'] }}">{{ $value['name_inggridient'] }} ({{ $value['unit_inggridient'] }})</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -148,7 +147,13 @@
                                     </thead>
                                 </thead>
                                 <tbody>
+                                    @php
+                                        $subtotal = 0;
+                                    @endphp
                                     @foreach ($purchase_inggridient as $key => $value)
+                                        @php
+                                            $subtotal += $value['total_price_inggridient'];
+                                        @endphp
                                         <tr>
                                             <td>{{ 'B-' . '' . str_pad('' . $value['id_inggridient'], 5, '0', STR_PAD_LEFT) }}</td>
                                             <td>{{ $value['name_inggridient'] }} ({{ $value['unit_inggridient'] }})</td>
@@ -160,6 +165,13 @@
                                                 <a wire:click="delete_inggridient({{ $value['id_inggridient'] }})" class="btn btn-sm btn-danger fas fa-trash-alt"> Delete</a>
                                             </td>
                                         </tr>
+                                        @if ($loop->last)
+                                            <tr>
+                                                <td colspan="5"><strong>SUBTOTAL</strong></td>
+                                                <td><strong>{{ format_uang($subtotal) }}</strong></td>
+                                                <td></td>
+                                            </tr>
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>

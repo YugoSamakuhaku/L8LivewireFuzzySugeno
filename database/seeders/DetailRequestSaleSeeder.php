@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use App\Models\MasterProduct;
 use Illuminate\Database\Seeder;
 use App\Models\DetailRequestSale;
+use App\Models\MasterInggridient;
 
 class DetailRequestSaleSeeder extends Seeder
 {
@@ -62666,6 +62668,10 @@ class DetailRequestSaleSeeder extends Seeder
         ];
 
         foreach ($detail_request_sales as $value) {
+            $find_master_product = MasterProduct::with(['master_inggridients'])->find($value['id_product']);
+            foreach ($find_master_product->master_inggridients as $key => $inggridient) {
+                $find_master_inggridient = MasterInggridient::find($inggridient['id_inggridient'])->decrement('qty_inggridient', $value['qty'] * $inggridient['pivot']->usage_amount);
+            }
             DetailRequestSale::create($value);
         }
     }

@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use Carbon\Carbon;
 use App\Models\DetailPurchase;
 use Illuminate\Database\Seeder;
+use App\Models\MasterInggridient;
 
 class DetailPurchaseSeeder extends Seeder
 {
@@ -274,6 +275,7 @@ class DetailPurchaseSeeder extends Seeder
 
         foreach ($detail_purchases as $value) {
             DetailPurchase::create($value);
+            $find_master_inggridient = MasterInggridient::find($value['id_inggridient'])->increment('qty_inggridient', $value['qty']);
         }
     }
 }

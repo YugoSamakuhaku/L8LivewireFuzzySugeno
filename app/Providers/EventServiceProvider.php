@@ -7,6 +7,7 @@ namespace App\Providers;
 use App\Models\User;
 use App\Models\Purchase;
 use App\Models\Supplier;
+use App\Models\RequestSale;
 use App\Models\MasterProduct;
 use App\Observers\RoleObserver;
 use App\Observers\UserObserver;
@@ -15,6 +16,7 @@ use Spatie\Permission\Models\Role;
 use App\Observers\PurchaseObserver;
 use App\Observers\SupplierObserver;
 use Illuminate\Support\Facades\Event;
+use App\Observers\RequestSaleObserver;
 use Illuminate\Auth\Events\Registered;
 use App\Observers\MasterProductObserver;
 use App\Observers\MasterInggridientObserver;
@@ -47,5 +49,6 @@ class EventServiceProvider extends ServiceProvider
         MasterInggridient::observe(MasterInggridientObserver::class);
         MasterProduct::observe(MasterProductObserver::class);
         Purchase::observe(PurchaseObserver::class);
+        RequestSale::observe(RequestSaleObserver::class);
     }
 }
