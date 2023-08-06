@@ -51,7 +51,7 @@ class Create extends Component
         $this->purchase->id_supplier = $this->keySupplier;
         $this->purchase->id_user = auth()->user()->id_user;
         $this->purchase->qty_purchase_inggridient = $this->qty_purchase_inggridient;
-        $this->purchase->date_purchase = Carbon::parse($this->date_purchase)->format('Y-m-d');
+        $this->purchase->date_purchase = Carbon::createFromFormat('d/m/Y', $this->date_purchase);
 
         $this->purchase->save();
 
@@ -64,7 +64,7 @@ class Create extends Component
 
             $sync_data[] = [
                 'id_inggridient' => $value['id_inggridient'],
-                'date_expired' => Carbon::parse($value['date_expired'])->format('Y-m-d'),
+                'date_expired' => Carbon::createFromFormat('d/m/Y', $value['date_expired']),
                 'qty' => $value['qty'],
                 'total_price_inggridient' => $value['total_price_inggridient'],
             ];

@@ -49,7 +49,7 @@ class Create extends Component
 
         $this->request_sale->id_user = auth()->user()->id_user;
         $this->request_sale->qty_sale = $this->qty_sale;
-        $this->request_sale->date_sale = Carbon::parse($this->date_sale)->format('Y-m-d');
+        $this->request_sale->date_sale = Carbon::createFromFormat('d/m/Y', $this->date_sale);
 
         $this->request_sale->save();
 
