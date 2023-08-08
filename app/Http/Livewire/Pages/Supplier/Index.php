@@ -8,8 +8,10 @@ use Livewire\Component;
 
 class Index extends Component
 {
+    // Melakukan scan tampilan component
     public function render()
     {
+        // menampilkan halaman blade
         return view('livewire.pages.supplier.index')->extends('layouts.app')->section('wrapper');
     }
 }

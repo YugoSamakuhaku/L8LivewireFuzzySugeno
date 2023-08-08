@@ -11,6 +11,7 @@ class Show extends Component
 {
     public Supplier $supplier;
 
+    // Mempersiapkan data untuk component
     public function mount(Supplier $supplier): void
     {
         $this->supplier = $supplier;

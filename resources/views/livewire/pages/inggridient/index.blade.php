@@ -21,6 +21,7 @@
                     @can('master_inggridients_create')
                         <div class="card-header">
                             <a href="{{ route('master_inggridient.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Create New Data</a>
+                            <a href="{{ route('master_inggridient.stock_report') }}" class="btn btn-warning"><i class="fas fa-file-invoice"></i> Inggridient stock report </a>
                         </div>
                     @endcan
                     <!-- ./card-header -->

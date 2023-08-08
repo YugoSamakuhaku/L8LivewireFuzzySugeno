@@ -25,6 +25,7 @@ use App\Http\Controllers\MasterInggridientController;
 |
 */
 
+// Middleware digunakan untuk kondisi akses login
 Route::group(['middleware' => 'guest'], function (): void {
     Route::get('login', Login::class)->name('auth.login');
 });
@@ -50,6 +51,7 @@ Route::group(['middleware' => 'auth'], function (): void {
     Route::get('supplier/show/{supplier}', [SupplierController::class, 'show'])->name('supplier.show');
 
     Route::get('master_inggridient', [MasterInggridientController::class, 'index'])->name('master_inggridient.index');
+    Route::get('master_inggridient/stock_report', [MasterInggridientController::class, 'stock_report'])->name('master_inggridient.stock_report');
     Route::get('master_inggridient/create', [MasterInggridientController::class, 'create'])->name('master_inggridient.create');
     Route::get('master_inggridient/edit/{master_inggridient}', [MasterInggridientController::class, 'edit'])->name('master_inggridient.edit');
     Route::get('master_inggridient/show/{master_inggridient}', [MasterInggridientController::class, 'show'])->name('master_inggridient.show');

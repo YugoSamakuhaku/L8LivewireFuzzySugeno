@@ -20,6 +20,7 @@ class Purchase extends Model
         'id_supplier',
         'id_user',
         'qty_purchase_inggridient',
+        'description_purchase',
         'date_purchase',
     ];
 

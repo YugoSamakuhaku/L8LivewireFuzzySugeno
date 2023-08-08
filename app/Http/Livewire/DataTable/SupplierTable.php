@@ -226,7 +226,7 @@ final class SupplierTable extends PowerGridComponent
             'onConfirmed' => 'confirmed-alert',
             'showCancelButton' => true,
             'onDismissed' => '',
-            'text' => 'Are you sure you want to delete data ' . 'U-' . '' . str_pad('' . $supplier->id_supplier, 5, '0', STR_PAD_LEFT) . ' ?',
+            'text' => 'Are you sure you want to delete data ' . 'S-' . '' . str_pad('' . $supplier->id_supplier, 5, '0', STR_PAD_LEFT) . ' ?',
             'cancelButtonText' => 'Cancel',
             'confirmButtonText' => 'Yes',
         ]);

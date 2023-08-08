@@ -103,7 +103,8 @@ final class RequestSaleTable extends PowerGridComponent
             ->addColumn('id_sale_format', fn (RequestSale $model) => 'SA-' . '' . str_pad('' . $model->id_sale, 5, '0', STR_PAD_LEFT))
             ->addColumn('id_user', fn (RequestSale $model) => $model->users->fullname)
             ->addColumn('qty_sale')
-            ->addColumn('total_price_product', fn (RequestSale $model) => format_uang($model->master_products->sum('pivot.total_price_product')))
+            ->addColumn('total_price_product_format', fn (RequestSale $model) => format_uang($model->master_products->sum('pivot.total_price_product')))
+            ->addColumn('total_price_product', fn (RequestSale $model) => $model->master_products->sum('pivot.total_price_product'))
             ->addColumn('date_sale_formatted', fn (RequestSale $model) => Carbon::parse($model->date_sale)->format('l, d F Y'))
             ->addColumn('created_at_formatted', fn (RequestSale $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
             ->addColumn('updated_at_formatted', fn (RequestSale $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
@@ -138,9 +139,10 @@ final class RequestSaleTable extends PowerGridComponent
                 ->searchable()
                 ->sortable(),
 
-            Column::make('TOTAL PRICE SALE', 'total_price_product')
+            Column::make('TOTAL PRICE SALE', 'total_price_product_format', 'total_price_product')
                 ->searchable()
-                ->sortable(),
+                ->sortable()
+                ->withSum('', false, true),
 
             Column::make('DATE SALE', 'date_sale_formatted', 'date_sale')
                 ->searchable()

@@ -1,4 +1,4 @@
-@section('title', 'Supplier')
+@section('title', 'Report Stock')
 
 <div>
     <!-- Site wrapper -->
@@ -18,16 +18,10 @@
             <!-- Main content -->
             <section class="content">
                 <div class="card">
-                    @can('suppliers_create')
-                        <div class="card-header">
-                            <a href="{{ route('supplier.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Create New Data</a>
-                        </div>
-                    @endcan
+
                     <!-- ./card-header -->
                     <div class="card-body pt-4">
-                    
-                        {{-- Untuk menampilkan data supplier menggunakan package POWERGRID livewire [C:\Github Repository\L8LivewireFuzzySugeno\app\Http\Livewire\DataTable\SupplierTable.php] --}}
-                        <livewire:data-table.supplier-table />
+                        <livewire:data-table.stock-report-table />
                     </div>
                     <!-- /.card-body -->
                 </div>

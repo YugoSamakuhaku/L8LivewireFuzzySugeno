@@ -21,7 +21,7 @@
                 <br>
             @endif
             @if ($column->sum['footer'] && is_numeric($withoutPaginatedData[0][$field]))
-                <span>{{ $column->sum['label'] }}: {{ round($withoutPaginatedData->collect()->sum($field), $column->sum['rounded']) }}</span>
+                <strong>{{ format_uang($withoutPaginatedData->collect()->sum($field), $column->sum['rounded']) }}</strong>
                 <br>
             @endif
             @if ($column->avg['footer'] && is_numeric($withoutPaginatedData[0][$field]))

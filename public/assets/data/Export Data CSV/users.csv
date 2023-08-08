@@ -1,0 +1,13 @@
+id_user,fullname,username,password,remember_token,created_at,updated_at
+1,Administrator,admin,$2y$10$itBYaoN6IhlaES0Hb5QB7.06s7XFOvnyzEgY83kYjWf5VNUzTqgp.,,2023-08-06 09:08:11,2023-08-06 09:08:11
+2,Employee,employee,$2y$10$06DcKPFvrgtOs5jhxW3eH.2aFdHtmop4mL.NZufbqr6aubhzePcWO,,2023-08-06 09:08:11,2023-08-06 09:08:11
+3,Reed Gutkowski,pfahey,$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi,aK94v023sv,2023-08-06 09:08:11,2023-08-06 09:08:11
+4,Ms. Elsie Rohan MD,streich.yessenia,$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi,UjSVe1KSd4,2023-08-06 09:08:11,2023-08-06 09:08:11
+5,Hershel Nikolaus,ometz,$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi,0DoxZ0BUS6,2023-08-06 09:08:11,2023-08-06 09:08:11
+6,Miss Twila Satterfield,xrau,$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi,y2zDBmGBhA,2023-08-06 09:08:11,2023-08-06 09:08:11
+7,Destinee Bergstrom,dkshlerin,$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi,yuYDVlSEPP,2023-08-06 09:08:11,2023-08-06 09:08:11
+8,Ms. Rachelle Muller,estehr,$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi,HYIvLfzZsR,2023-08-06 09:08:11,2023-08-06 09:08:11
+9,Ursula Roberts,jadon83,$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi,DB3XphkwFz,2023-08-06 09:08:11,2023-08-06 09:08:11
+10,Nelda Dooley IV,alphonso42,$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi,ZjrYT9serb,2023-08-06 09:08:11,2023-08-06 09:08:11
+11,Melyssa Corkery,eliseo.daniel,$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi,04nsSmfxnN,2023-08-06 09:08:11,2023-08-06 09:08:11
+12,Mrs. Wava Walker,alexys05,$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi,o10sBpvxJ7,2023-08-06 09:08:11,2023-08-06 09:08:11

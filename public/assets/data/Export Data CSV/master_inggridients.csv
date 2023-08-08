@@ -1,0 +1,4 @@
+id_inggridient,name_inggridient,qty_inggridient,unit_inggridient,price_inggridient,duration_expired,time_expired,created_at,updated_at
+1,Biji Kopi,32767,gr,80,7,month,2023-08-06 09:08:15,2023-08-06 12:57:24
+2,Susu,51410,ml,40,6,month,2023-08-06 09:08:15,2023-08-06 12:57:24
+3,Gula,46963,gr,20,12,month,2023-08-06 09:08:15,2023-08-06 11:57:45
