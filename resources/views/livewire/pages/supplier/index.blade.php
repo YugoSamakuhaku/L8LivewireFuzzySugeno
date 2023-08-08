@@ -25,7 +25,7 @@
                     @endcan
                     <!-- ./card-header -->
                     <div class="card-body pt-4">
-                    
+
                         {{-- Untuk menampilkan data supplier menggunakan package POWERGRID livewire [C:\Github Repository\L8LivewireFuzzySugeno\app\Http\Livewire\DataTable\SupplierTable.php] --}}
                         <livewire:data-table.supplier-table />
                     </div>

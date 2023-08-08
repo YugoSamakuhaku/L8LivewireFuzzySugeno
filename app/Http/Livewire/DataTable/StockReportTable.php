@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\DataTable;
 
-use App\Models\Purchase;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -18,32 +19,6 @@ use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 final class StockReportTable extends PowerGridComponent
 {
     use ActionButton;
-
-    /*
-    |--------------------------------------------------------------------------
-    |  Datasource
-    |--------------------------------------------------------------------------
-    | Provides data to your Table using a Model or Collection
-    |
-    */
-    public function datasource(): ?Collection
-    {
-
-        dd(DB::table('purchases')
-        ->join('detail_purchases', 'purchases.id_purchase', '=', 'detail_purchases.id_purchase')
-        ->join('master_inggridients', 'master_inggridients.id_inggridient', '=', 'detail_purchases.id_inggridient')
-        ->select(DB::raw('MONTH(purchases.date_purchase) AS MONTH, YEAR(purchases.date_purchase) AS YEAR, master_inggridients.id_inggridient, master_inggridients.name_inggridient, master_inggridients.unit_inggridient, detail_purchases.qty'))
-        ->groupByRaw('master_inggridients.name_inggridient, MONTH(purchases.date_purchase), YEAR(purchases.date_purchase)')
-        ->get());
-
-        return collect([
-            ['id' => 1, 'name' => 'Name 1', 'price' => 1.58, 'created_at' => now(),],
-            ['id' => 2, 'name' => 'Name 2', 'price' => 1.68, 'created_at' => now(),],
-            ['id' => 3, 'name' => 'Name 3', 'price' => 1.78, 'created_at' => now(),],
-            ['id' => 4, 'name' => 'Name 4', 'price' => 1.88, 'created_at' => now(),],
-            ['id' => 5, 'name' => 'Name 5', 'price' => 1.98, 'created_at' => now(),],
-        ]);
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -69,6 +44,32 @@ final class StockReportTable extends PowerGridComponent
 
     /*
     |--------------------------------------------------------------------------
+    |  Datasource
+    |--------------------------------------------------------------------------
+    | Provides data to your Table using a Model or Collection
+    |
+    */
+    public function datasource(): ?Collection
+    {
+
+        dd(DB::table('purchases')
+            ->join('detail_purchases', 'purchases.id_purchase', '=', 'detail_purchases.id_purchase')
+            ->join('master_inggridients', 'master_inggridients.id_inggridient', '=', 'detail_purchases.id_inggridient')
+            ->select(DB::raw('MONTH(purchases.date_purchase) AS MONTH, YEAR(purchases.date_purchase) AS YEAR, master_inggridients.id_inggridient, master_inggridients.name_inggridient, master_inggridients.unit_inggridient, detail_purchases.qty'))
+            ->groupByRaw('master_inggridients.name_inggridient, MONTH(purchases.date_purchase), YEAR(purchases.date_purchase)')
+            ->get());
+
+        return collect([
+            ['id' => 1, 'name' => 'Name 1', 'price' => 1.58, 'created_at' => now(),],
+            ['id' => 2, 'name' => 'Name 2', 'price' => 1.68, 'created_at' => now(),],
+            ['id' => 3, 'name' => 'Name 3', 'price' => 1.78, 'created_at' => now(),],
+            ['id' => 4, 'name' => 'Name 4', 'price' => 1.88, 'created_at' => now(),],
+            ['id' => 5, 'name' => 'Name 5', 'price' => 1.98, 'created_at' => now(),],
+        ]);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
     |  Add Column
     |--------------------------------------------------------------------------
     | Make Datasource fields available to be used as columns.
@@ -81,9 +82,7 @@ final class StockReportTable extends PowerGridComponent
             ->addColumn('id')
             ->addColumn('name')
             ->addColumn('price')
-            ->addColumn('created_at_formatted', function ($entry) {
-                return Carbon::parse($entry->created_at)->format('d/m/Y');
-            });
+            ->addColumn('created_at_formatted', fn ($entry) => Carbon::parse($entry->created_at)->format('d/m/Y'));
     }
 
     /*
@@ -95,7 +94,7 @@ final class StockReportTable extends PowerGridComponent
     |
 
     */
-     /**
+    /**
      * PowerGrid Columns.
      *
      * @return array<int, Column>

@@ -23,13 +23,6 @@ class MasterInggridientController extends Controller
         return App::call(Index::class);
     }
 
-    public function stock_report()
-    {
-        abort_if(Gate::denies('master_inggridients_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        return App::call(StockReport::class);
-    }
-
     public function create()
     {
         abort_if(Gate::denies('master_inggridients_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -49,5 +42,12 @@ class MasterInggridientController extends Controller
         abort_if(Gate::denies('master_inggridients_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return App::call(Edit::class)->with(compact('master_inggridient'));
+    }
+
+    public function stock_report()
+    {
+        abort_if(Gate::denies('master_inggridients_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return App::call(StockReport::class);
     }
 }
