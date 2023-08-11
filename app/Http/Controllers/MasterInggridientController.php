@@ -4,15 +4,18 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use Carbon\CarbonPeriod;
 use Illuminate\Http\Response;
+use Illuminate\Support\Carbon;
 use App\Models\MasterInggridient;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Livewire\Pages\Inggridient\Edit;
 use App\Http\Livewire\Pages\Inggridient\Show;
 use App\Http\Livewire\Pages\Inggridient\Index;
 use App\Http\Livewire\Pages\Inggridient\Create;
-use App\Http\Livewire\Pages\Inggridient\StockReport;
+use App\Http\Livewire\Pages\Inggridient\Stockreport;
 
 class MasterInggridientController extends Controller
 {
@@ -47,7 +50,7 @@ class MasterInggridientController extends Controller
     public function stock_report()
     {
         abort_if(Gate::denies('master_inggridients_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        return App::call(StockReport::class);
+       
+        return App::call(Stockreport::class);
     }
 }
