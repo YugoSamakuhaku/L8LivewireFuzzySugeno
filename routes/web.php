@@ -13,6 +13,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RequestSaleController;
 use App\Http\Controllers\MasterProductController;
 use App\Http\Controllers\MasterInggridientController;
+use App\Http\Controllers\StockReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,9 +53,11 @@ Route::group(['middleware' => 'auth'], function (): void {
 
     Route::get('master_inggridient', [MasterInggridientController::class, 'index'])->name('master_inggridient.index');
     Route::get('master_inggridient/create', [MasterInggridientController::class, 'create'])->name('master_inggridient.create');
-    Route::get('master_inggridient/stock_report', [MasterInggridientController::class, 'stock_report'])->name('master_inggridient.stock_report');
     Route::get('master_inggridient/edit/{master_inggridient}', [MasterInggridientController::class, 'edit'])->name('master_inggridient.edit');
     Route::get('master_inggridient/show/{master_inggridient}', [MasterInggridientController::class, 'show'])->name('master_inggridient.show');
+
+    Route::get('stock_report', [StockReportController::class, 'index'])->name('stock_report.index');
+    Route::get('stock_report/show', [StockReportController::class, 'show'])->name('stock_report.show');
 
     Route::get('master_product', [MasterProductController::class, 'index'])->name('master_product.index');
     Route::get('master_product/create', [MasterProductController::class, 'create'])->name('master_product.create');

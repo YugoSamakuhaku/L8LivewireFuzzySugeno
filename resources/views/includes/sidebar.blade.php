@@ -77,6 +77,16 @@
                             </a>
                         </li>
                     @endcan
+                    @can('master_inggridients_access')
+                        <li class="nav-item">
+                            <a href="{{ route('stock_report.index') }}" class="nav-link {{ request()->routeIs('stock_report*') ? 'active' : '' }}">
+                               <i class="fas fa-warehouse"></i>
+                                <p>
+                                    Inggridient stock report
+                                </p>
+                            </a>
+                        </li>
+                    @endcan
                     @can(['users_access', 'roles_access', 'permissions_access'])
                         <li class="nav-header">MANAGEMENT USER</li>
                     @endcan

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Pages\Inggridient;
+namespace App\Http\Livewire\Pages\StockReport;
 
 use Livewire\Component;
 use Carbon\CarbonPeriod;
@@ -15,10 +15,10 @@ class Stockreport extends Component
 
     public $stock_report = [];
 
-    public function mount()
+    public function mount($date_start, $date_end)
     {
-        $this->date_start = Carbon::create('2021', '07', '01');
-        $this->date_end = Carbon::create('2022', '06', '31');
+        $this->date_start = Carbon::createFromFormat('d/m/Y', $date_start)->format('Y-m-d');
+        $this->date_end = Carbon::createFromFormat('d/m/Y', $date_end)->format('Y-m-d');
 
         $period = CarbonPeriod::create($this->date_start, $this->date_end);
 
@@ -46,8 +46,8 @@ class Stockreport extends Component
             ->join('detail_purchases', 'purchases.id_purchase', '=', 'detail_purchases.id_purchase')
             ->join('master_inggridients', 'master_inggridients.id_inggridient', '=', 'detail_purchases.id_inggridient')
             ->select(DB::raw('purchases.date_purchase, MONTH(purchases.date_purchase) AS MONTH, YEAR(purchases.date_purchase) AS YEAR, master_inggridients.id_inggridient, detail_purchases.qty'))
-            ->whereDate('purchases.date_purchase', '>=', $this->date_start->format('Y-m-d'))
-            ->whereDate('purchases.date_purchase', '<=', $this->date_end->format('Y-m-d'))
+            ->whereDate('purchases.date_purchase', '>=', $this->date_start)
+            ->whereDate('purchases.date_purchase', '<=', $this->date_end)
             ->groupByRaw('master_inggridients.id_inggridient, MONTH(purchases.date_purchase), YEAR(purchases.date_purchase)')
             ->get();
 
@@ -61,8 +61,8 @@ class Stockreport extends Component
             ->join('detail_request_sales', 'request_sales.id_sale', '=', 'detail_request_sales.id_sale')
             ->join('product_inggridients', 'product_inggridients.id_product', '=', 'detail_request_sales.id_product')
             ->select(DB::raw(' request_sales.date_sale ,MONTH(request_sales.date_sale) AS MONTH, YEAR(request_sales.date_sale) AS YEAR, product_inggridients.id_product , product_inggridients.id_inggridient, product_inggridients.usage_amount, SUM(detail_request_sales.qty) * product_inggridients.usage_amount AS total_usage_amount'))
-            ->whereDate('request_sales.date_sale', '>=', $this->date_start->format('Y-m-d'))
-            ->whereDate('request_sales.date_sale', '<=', $this->date_end->format('Y-m-d'))
+            ->whereDate('request_sales.date_sale', '>=', $this->date_start)
+            ->whereDate('request_sales.date_sale', '<=', $this->date_end)
             ->groupByRaw('product_inggridients.id_product, product_inggridients.id_inggridient, MONTH(request_sales.date_sale), YEAR(request_sales.date_sale)')
             ->get();
 
@@ -91,11 +91,10 @@ class Stockreport extends Component
                 }
             }
         }
-        
     }
 
     public function render()
     {
-        return view('livewire.pages.inggridient.stockreport')->extends('layouts.app')->section('wrapper');
+        return view('livewire.pages.stock-report.stockreport');
     }
 }

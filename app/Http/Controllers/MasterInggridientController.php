@@ -15,7 +15,6 @@ use App\Http\Livewire\Pages\Inggridient\Edit;
 use App\Http\Livewire\Pages\Inggridient\Show;
 use App\Http\Livewire\Pages\Inggridient\Index;
 use App\Http\Livewire\Pages\Inggridient\Create;
-use App\Http\Livewire\Pages\Inggridient\Stockreport;
 
 class MasterInggridientController extends Controller
 {
@@ -45,12 +44,5 @@ class MasterInggridientController extends Controller
         abort_if(Gate::denies('master_inggridients_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return App::call(Edit::class)->with(compact('master_inggridient'));
-    }
-
-    public function stock_report()
-    {
-        abort_if(Gate::denies('master_inggridients_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-       
-        return App::call(Stockreport::class);
     }
 }
