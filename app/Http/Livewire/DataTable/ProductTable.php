@@ -110,7 +110,7 @@ final class ProductTable extends PowerGridComponent
             ->addColumn('name_product_lower', fn (MasterProduct $model) => mb_strtolower(e($model->name_product)))
 
             ->addColumn('unit_product')
-            ->addColumn('price_product')
+            ->addColumn('price_product_format', fn (MasterProduct $model) => format_uang($model->price_product))
             ->addColumn('updated_at_formatted', fn (MasterProduct $model) => Carbon::parse($model->updated_at)->format('l, d F Y'));
     }
 
@@ -141,7 +141,7 @@ final class ProductTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
-            Column::make('PRICE PRODUCT', 'price_product'),
+            Column::make('PRICE PRODUCT', 'price_product_format', 'price_product'),
 
             Column::make('UPDATED AT', 'updated_at_formatted', 'updated_at')
                 ->searchable()

@@ -31,5 +31,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RequestSaleSeeder::class);
         $this->call(DetailRequestSaleSeeder::class);
+
+        $this->call(InggridientHistorySeeder::class);
     }
 }

@@ -19,7 +19,7 @@ class MasterInggridientSeeder extends Seeder
         $master_inggridients = [
             [
                 'name_inggridient' => 'Biji Kopi',
-                'qty_inggridient' => 0,
+                'qty_inggridient' => 1678,
                 'unit_inggridient' => 'gr',
                 'price_inggridient' => 80,
                 'duration_expired' => '7',
@@ -27,7 +27,7 @@ class MasterInggridientSeeder extends Seeder
             ],
             [
                 'name_inggridient' => 'Susu',
-                'qty_inggridient' => 0,
+                'qty_inggridient' => 650,
                 'unit_inggridient' => 'ml',
                 'price_inggridient' => 40,
                 'duration_expired' => '6',
@@ -35,7 +35,7 @@ class MasterInggridientSeeder extends Seeder
             ],
             [
                 'name_inggridient' => 'Gula',
-                'qty_inggridient' => 0,
+                'qty_inggridient' => 1568,
                 'unit_inggridient' => 'gr',
                 'price_inggridient' => 20,
                 'duration_expired' => '12',

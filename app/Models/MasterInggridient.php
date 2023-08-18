@@ -27,7 +27,7 @@ class MasterInggridient extends Model
 
     public function inggridient_history()
     {
-        return $this->hasMany(InggridientHistory::class);
+        return $this->hasMany(InggridientHistory::class, 'id_inggridient', 'id_inggridient');
     }
 
     public function master_products()

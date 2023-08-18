@@ -10,13 +10,16 @@ class CreateInggridientHistoriesTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('inggridient_histories', function (Blueprint $table): void {
+        Schema::create('inggridient_history', function (Blueprint $table): void {
             $table->id('id_history');
             $table->unsignedBigInteger('id_inggridient');
             $table->date('date');
-            $table->bigInteger('stok_in');
-            $table->bigInteger('stok_out');
-            $table->bigInteger('last_stok');
+            $table->bigInteger('stock')->default(0);
+            $table->bigInteger('purchase')->default(0);
+            $table->bigInteger('stock_in')->default(0);
+            $table->bigInteger('stock_out')->default(0);
+            $table->bigInteger('last_stock')->default(0);
+            $table->timestamps();
 
             $table->foreign('id_inggridient')->references('id_inggridient')->on('master_inggridients')->onDelete('RESTRICT');
         });

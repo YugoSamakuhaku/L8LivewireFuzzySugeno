@@ -275,7 +275,11 @@ class DetailPurchaseSeeder extends Seeder
 
         foreach ($detail_purchases as $value) {
             DetailPurchase::create($value);
-            $find_master_inggridient = MasterInggridient::find($value['id_inggridient'])->increment('qty_inggridient', $value['qty']);
         }
+        
+        // foreach ($detail_purchases as $value) {
+        //     DetailPurchase::create($value);
+        //     $find_master_inggridient = MasterInggridient::find($value['id_inggridient'])->increment('qty_inggridient', $value['qty']);
+        // }
     }
 }

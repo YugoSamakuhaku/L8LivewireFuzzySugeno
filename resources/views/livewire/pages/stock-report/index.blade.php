@@ -27,7 +27,7 @@
                                                 <div class="input-group-prepend" data-target="#date_start" data-toggle="datetimepicker">
                                                     <span class="input-group-text"><i class="far fa-calendar"></i></span>
                                                 </div>
-                                                <input type="text" class="form-control disabled @error('date_start') is-invalid @enderror datetimepicker-input" id="date_start" placeholder="Input Date Start" data-target="#reservationdate" wire:model.defer="date_start" />
+                                                <input type="text" value="" class="form-control disabled @error('date_start') is-invalid @enderror datetimepicker-input" id="date_start" placeholder="Input Date Start" data-target="#reservationdate" wire:model.defer="date_start" />
                                                 @error('date_start')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -44,7 +44,7 @@
                                                 <div class="input-group-prepend" data-target="#date_end" data-toggle="datetimepicker">
                                                     <span class="input-group-text"><i class="far fa-calendar"></i></span>
                                                 </div>
-                                                <input type="text" class="form-control disabled @error('date_end') is-invalid @enderror datetimepicker-input" id="date_end" placeholder="Input Date End" data-target="#reservationdate" wire:model.defer="date_end" />
+                                                <input type="text" value="" class="form-control disabled @error('date_end') is-invalid @enderror datetimepicker-input" id="date_end" placeholder="Input Date End" data-target="#reservationdate" wire:model.defer="date_end" />
                                                 @error('date_end')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -56,7 +56,15 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-large btn-primary submit">Make Report</button>
+                                        <div wire:loading.remove>
+                                            <button type="submit" class="btn btn-large btn-primary submit">Make Report</button>
+                                        </div>
+                                        <div wire:loading.inline-flex>
+                                            <button class="btn btn-large btn-primary" type="button" disabled>
+                                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                                Loading...
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -100,7 +108,6 @@
     <!-- ./wrapper -->
 </div>
 
-
 @push('styles')
 <!-- DataTables -->
 <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -128,17 +135,34 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js" integrity="sha512-k6/Bkb8Fxf/c1Tkyl39yJwcOZ1P4cRrJu77p83zJjN2Z55prbFHxPs9vN7q3l3+tSMGPDdoH51AEU8Vgo1cgAA==" crossorigin="anonymous"></script>
 <script>
-    $('#date_start').datetimepicker({
-        format: 'DD/MM/YYYY'
-    , });
+    document.addEventListener('livewire:load', function() {
+        // Get the value of the "count" property
+        var firstDate = @this.data_first_date
+        var lastDate = @this.data_last_date
+
+        @this.set('date_start', moment(firstDate).format('DD/MM/YYYY'));
+        @this.set('date_end', moment(lastDate).format('DD/MM/YYYY'));
+
+        $('#date_start').datetimepicker({
+            format: 'DD/MM/YYYY'
+            , useCurrent: false
+            , minDate: new Date(firstDate)
+            , maxDate: new Date(lastDate)
+            , defaultDate: new Date(firstDate)
+        , });
+
+        $('#date_end').datetimepicker({
+            format: 'DD/MM/YYYY'
+            , useCurrent: false
+            , minDate: new Date(firstDate)
+            , maxDate: new Date(lastDate)
+            , defaultDate: new Date(lastDate)
+        , });
+    })
 
     $('#date_start').on("hide.datetimepicker", function(e) {
         @this.set('date_start', moment(e.date).format('DD/MM/YYYY'));
     });
-
-    $('#date_end').datetimepicker({
-        format: 'DD/MM/YYYY'
-    , });
 
     $('#date_end').on("hide.datetimepicker", function(e) {
         @this.set('date_end', moment(e.date).format('DD/MM/YYYY'));
