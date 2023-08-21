@@ -23,6 +23,7 @@ class InggridientHistory extends Model
         'purchase',
         'stock_in',
         'stock_out',
+        'last_stock',
     ];
 
     public function master_inggridients()
