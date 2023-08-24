@@ -1,5 +1,5 @@
 <div>
-    @foreach($this->stock_report as $key => $value)
+    @foreach ($this->stock_report as $key => $value)
     <tr>
         <td>{{ Carbon\Carbon::create($value['date'])->format('F Y') }}</td>
         <td>{{ $value['id_inggridient'] }}</td>

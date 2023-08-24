@@ -62670,7 +62670,7 @@ class DetailRequestSaleSeeder extends Seeder
         foreach ($detail_request_sales as $value) {
             DetailRequestSale::create($value);
         }
-        
+
         // foreach ($detail_request_sales as $value) {
         //     $find_master_product = MasterProduct::with(['master_inggridients'])->find($value['id_product']);
         //     foreach ($find_master_product->master_inggridients as $key => $inggridient) {

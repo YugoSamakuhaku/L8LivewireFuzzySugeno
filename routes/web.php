@@ -11,9 +11,9 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RequestSaleController;
+use App\Http\Controllers\StockReportController;
 use App\Http\Controllers\MasterProductController;
 use App\Http\Controllers\MasterInggridientController;
-use App\Http\Controllers\StockReportController;
 
 /*
 |--------------------------------------------------------------------------

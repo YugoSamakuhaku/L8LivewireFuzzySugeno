@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Pages\StockReport;
 
 use Livewire\Component;
@@ -19,7 +21,7 @@ class Index extends Component
     public $keySubmit;
     public $load_datatable = false;
 
-    public function mount()
+    public function mount(): void
     {
         $purchase_first = Purchase::select('id_purchase', 'date_purchase')->orderBy('date_purchase', 'ASC')->first();
         $purchase_last = Purchase::select('id_purchase', 'date_purchase')->orderBy('date_purchase', 'DESC')->first();
@@ -38,7 +40,7 @@ class Index extends Component
         return view('livewire.pages.stock-report.index')->extends('layouts.app')->section('wrapper');
     }
 
-    public function submit()
+    public function submit(): void
     {
         $this->validate([
             'date_start' => 'required',
@@ -52,7 +54,8 @@ class Index extends Component
         $this->load_datatable = true;
 
         DB::table('inggridient_history')->delete();
-        
+        DB::statement("ALTER TABLE inggridient_history AUTO_INCREMENT = 1;");
+
         Artisan::call('db:seed --class=InggridientHistorySeeder');
     }
 }

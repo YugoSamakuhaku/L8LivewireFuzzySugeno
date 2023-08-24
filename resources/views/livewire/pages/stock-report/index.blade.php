@@ -29,9 +29,9 @@
                                                 </div>
                                                 <input type="text" value="" class="form-control disabled @error('date_start') is-invalid @enderror datetimepicker-input" id="date_start" placeholder="Input Date Start" data-target="#reservationdate" wire:model.defer="date_start" />
                                                 @error('date_start')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
                                                 @enderror
                                             </div>
                                         </div>
@@ -46,9 +46,9 @@
                                                 </div>
                                                 <input type="text" value="" class="form-control disabled @error('date_end') is-invalid @enderror datetimepicker-input" id="date_end" placeholder="Input Date End" data-target="#reservationdate" wire:model.defer="date_end" />
                                                 @error('date_end')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
                                                 @enderror
                                             </div>
                                         </div>
@@ -72,26 +72,26 @@
                     </div>
                     <!-- ./card-header -->
                     <div class="card-body">
-                        @if($this->load_datatable)
-                        <table id="datatable" class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>DATE</th>
-                                    <th>ID INGGRIDIENT</th>
-                                    <th>NAME INGGRIDIENT</th>
-                                    <th>STOREHOUSE STOCK</th>
-                                    <th>PURCHASE</th>
-                                    <th>STOCK IN</th>
-                                    <th>STOCK OUT</th>
-                                    <th>LAST STOCK</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        @if ($this->load_datatable)
+                            <table id="datatable" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>DATE</th>
+                                        <th>ID INGGRIDIENT</th>
+                                        <th>NAME INGGRIDIENT</th>
+                                        <th>STOREHOUSE STOCK</th>
+                                        <th>PURCHASE</th>
+                                        <th>STOCK IN</th>
+                                        <th>STOCK OUT</th>
+                                        <th>LAST STOCK</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                                {{-- @livewire('pages.stock-report.stockreport', ["date_start" => $this->date_start, "date_end" => $this->date_end]) --}}
-                                <livewire:pages.stock-report.stockreport key="{{ $this->keySubmit }}" :date_start="$this->date_start" :date_end="$this->date_end" />
-                            </tbody>
-                        </table>
+                                    {{-- @livewire('pages.stock-report.stockreport', ["date_start" => $this->date_start, "date_end" => $this->date_end]) --}}
+                                    <livewire:pages.stock-report.stockreport key="{{ $this->keySubmit }}" :date_start="$this->date_start" :date_end="$this->date_end" />
+                                </tbody>
+                            </table>
                         @endif
                     </div>
                     <!-- /.card-body -->
@@ -109,93 +109,90 @@
 </div>
 
 @push('styles')
-<!-- DataTables -->
-<link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" integrity="sha512-3JRrEUwaCkFUBLK1N8HehwQgu8e23jTH4np5NHOmQOobuC4ROQxFwFgBLTnhcnQRMs84muMh0PnnwXlPq5MGjg==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" integrity="sha512-3JRrEUwaCkFUBLK1N8HehwQgu8e23jTH4np5NHOmQOobuC4ROQxFwFgBLTnhcnQRMs84muMh0PnnwXlPq5MGjg==" crossorigin="anonymous" />
 @endpush
 
 @push('scripts')
-<!-- DataTables  & Plugins -->
-<script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/jszip/jszip.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/pdfmake/pdfmake.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/pdfmake/vfs_fonts.js') }}"></script>
-<script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js" integrity="sha512-k6/Bkb8Fxf/c1Tkyl39yJwcOZ1P4cRrJu77p83zJjN2Z55prbFHxPs9vN7q3l3+tSMGPDdoH51AEU8Vgo1cgAA==" crossorigin="anonymous"></script>
-<script>
-    document.addEventListener('livewire:load', function() {
-        // Get the value of the "count" property
-        var firstDate = @this.data_first_date
-        var lastDate = @this.data_last_date
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js" integrity="sha512-k6/Bkb8Fxf/c1Tkyl39yJwcOZ1P4cRrJu77p83zJjN2Z55prbFHxPs9vN7q3l3+tSMGPDdoH51AEU8Vgo1cgAA==" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('livewire:load', function() {
+            // Get the value of the "count" property
+            var firstDate = @this.data_first_date
+            var lastDate = @this.data_last_date
 
-        @this.set('date_start', moment(firstDate).format('DD/MM/YYYY'));
-        @this.set('date_end', moment(lastDate).format('DD/MM/YYYY'));
+            @this.set('date_start', moment(firstDate).format('DD/MM/YYYY'));
+            @this.set('date_end', moment(lastDate).format('DD/MM/YYYY'));
 
-        $('#date_start').datetimepicker({
-            format: 'DD/MM/YYYY'
-            , useCurrent: false
-            , minDate: new Date(firstDate)
-            , maxDate: new Date(lastDate)
-            , defaultDate: new Date(firstDate)
-        , });
+            $('#date_start').datetimepicker({
+                format: 'DD/MM/YYYY',
+                useCurrent: false,
+                minDate: new Date(firstDate),
+                maxDate: new Date(lastDate),
+                defaultDate: new Date(firstDate),
+            });
 
-        $('#date_end').datetimepicker({
-            format: 'DD/MM/YYYY'
-            , useCurrent: false
-            , minDate: new Date(firstDate)
-            , maxDate: new Date(lastDate)
-            , defaultDate: new Date(lastDate)
-        , });
-    })
+            $('#date_end').datetimepicker({
+                format: 'DD/MM/YYYY',
+                useCurrent: false,
+                minDate: new Date(firstDate),
+                maxDate: new Date(lastDate),
+                defaultDate: new Date(lastDate),
+            });
+        })
 
-    $('#date_start').on("hide.datetimepicker", function(e) {
-        @this.set('date_start', moment(e.date).format('DD/MM/YYYY'));
-    });
+        $('#date_start').on("hide.datetimepicker", function(e) {
+            @this.set('date_start', moment(e.date).format('DD/MM/YYYY'));
+        });
 
-    $('#date_end').on("hide.datetimepicker", function(e) {
-        @this.set('date_end', moment(e.date).format('DD/MM/YYYY'));
-    });
+        $('#date_end').on("hide.datetimepicker", function(e) {
+            @this.set('date_end', moment(e.date).format('DD/MM/YYYY'));
+        });
 
-    window.addEventListener('initSomething', event => {
-        $("#datatable").DataTable({
-            "columnDefs": [{
-                    "visible": false
-                    , "targets": 1
-                }
-                , {
-                    "type": "date"
-                    , "targets": 0
-                }
-            ]
-            , "pageLength": 50
-            , "lengthMenu": [
-                [10, 25, 50, -1]
-                , [10, 25, 50, "All"]
-            ]
-            , "responsive": true
-            , "lengthChange": true
-            , "autoWidth": false
-            , "buttons": ["csv", "excel", "print", "colvis"]
-        }).buttons().container().appendTo('#datatable_wrapper .col-md-6:eq(0)');
-    })
+        window.addEventListener('initSomething', event => {
+            $("#datatable").DataTable({
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 1
+                }, {
+                    "type": "date",
+                    "targets": 0
+                }],
+                "pageLength": 50,
+                "lengthMenu": [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "All"]
+                ],
+                "responsive": true,
+                "lengthChange": true,
+                "autoWidth": false,
+                "buttons": ["csv", "excel", "print", "colvis"]
+            }).buttons().container().appendTo('#datatable_wrapper .col-md-6:eq(0)');
+        })
 
-    window.addEventListener('destroy', event => {
-        $('#datatable').dataTable({
-            "bDestroy": true
-        }).fnDestroy();
-    })
-
-</script>
+        window.addEventListener('destroy', event => {
+            $('#datatable').dataTable({
+                "bDestroy": true
+            }).fnDestroy();
+        })
+    </script>
 @endpush
